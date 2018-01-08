@@ -1,21 +1,39 @@
-import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import {Component, AfterViewInit, Renderer, ElementRef, OnInit} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
+import {Http} from "@angular/http";
+import {Polisa} from "../../home/polisa.service";
+import {Klient} from "../../Klient";
+import {PolisaMieszkaniowa} from "../../PolisaMieszkaniowa";
+import {FakturaMieszkaniowa} from "../../FakturaMieszkaniowa";
 
 @Component({
     selector: 'jhi-login-modal',
     templateUrl: './login.component.html'
 })
-export class JhiLoginModalComponent implements AfterViewInit {
+export class JhiLoginModalComponent implements  AfterViewInit {
     authenticationError: boolean;
     password: string;
     rememberMe: boolean;
     username: string;
     credentials: any;
+
+    private _webApiUrl = 'http://localhost:8080/api/';
+    public polisa: PolisaMieszkaniowa;
+    public polisaId: number;
+    public id: number;
+    public klientDTO: Klient;
+    public miasto: string = '';
+    public kodPocztowy: number;
+    public ulica: string = '';
+    public numerBudynku: number;
+    public numerMieszkania: number;
+    public polisy: PolisaMieszkaniowa[];
+    public fakturaMieszkaniowa: FakturaMieszkaniowa;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -24,7 +42,9 @@ export class JhiLoginModalComponent implements AfterViewInit {
         private elementRef: ElementRef,
         private renderer: Renderer,
         private router: Router,
-        public activeModal: NgbActiveModal
+        public activeModal: NgbActiveModal,
+        private http: Http,
+        private polisaService: Polisa
     ) {
         this.credentials = {};
     }
@@ -82,4 +102,32 @@ export class JhiLoginModalComponent implements AfterViewInit {
         this.activeModal.dismiss('to state requestReset');
         this.router.navigate(['/reset', 'request']);
     }
+
+    public pobierzPolise = () => {
+        this.polisaId = this.polisaService.getPolisaId();
+        // this.http.get(this._webApiUrl + 'polisa_mieszkaniowa/' + this.polisaService.getPolisaId())
+        //     .subscribe(result => this.polisa = result.json());
+    };
+
+    public pobierzPoliseById = (polisaId) => {
+        this.http.get(this._webApiUrl + 'polisa_mieszkaniowa/' + polisaId)
+            .subscribe(result => {
+                this.polisa = result.json();
+                console.log(this.polisa);
+            }, error => {
+                console.log(error.json());
+            });
+            // .subscribe(result => this.polisa = result.json());
+    };
+
+
+    public pobierzPolisy = () => {
+        this.http.get(this._webApiUrl + 'polisa_mieszkaniowa')
+            .subscribe(result => this.polisy = result.json());
+    };
+
+
+
+
+
 }

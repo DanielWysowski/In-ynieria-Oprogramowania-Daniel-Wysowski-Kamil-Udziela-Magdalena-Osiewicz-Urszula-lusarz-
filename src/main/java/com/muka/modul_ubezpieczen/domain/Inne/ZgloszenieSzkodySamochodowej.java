@@ -20,12 +20,13 @@ import static java.time.LocalDateTime.now;
 public class ZgloszenieSzkodySamochodowej {
 
     @Id
-    @Column(name = "IDZgloszenia")
+    @Column(name = "id_zgloszenia")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Setter
     @ManyToOne
+    //@JoinColumn (name = "Polisa_samochodowa_ID")
     private PolisaSamochodowa polisaSamochodowa;
 
 

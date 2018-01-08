@@ -3,6 +3,7 @@ package com.muka.modul_ubezpieczen.domain.Faktura;
 import com.muka.modul_ubezpieczen.domain.Inne.PolisaTurystyczna;
 import com.muka.modul_ubezpieczen.domain.Inne.Pracownik;
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,23 +31,23 @@ public class FakturaMieszkaniowa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idFaktura;
 
-    @Column(name = "Opis ", length = 60)
-    private String opis;
-
     @Column(name = "Kwota ", length = 60)
     private double kwota;
+
+    @Column(name = "Opis ", length = 60)
+    private String opis;
 
     @Column(name = "Data ", length = 60)
     private LocalDateTime data = now();
 
 
+    @Builder
+    public FakturaMieszkaniowa (double kwota, String opis, LocalDateTime data){
 
-
-    //  private double kwota;
-  //  private String opis;
-  //  private LocalDateTime data = now();
-
-
+        this.kwota=kwota;
+        this.opis=opis;
+        this.data=data;
+    }
 
 
 }

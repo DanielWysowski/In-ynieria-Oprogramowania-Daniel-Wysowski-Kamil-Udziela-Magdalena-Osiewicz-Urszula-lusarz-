@@ -1,18 +1,19 @@
 package com.muka.modul_ubezpieczen.web.rest;
 
 import com.muka.modul_ubezpieczen.domain.Klient.Klient;
-import com.muka.modul_ubezpieczen.service.KlientDTO;
+import com.muka.modul_ubezpieczen.service.dto.KlientDTO;
 import com.muka.modul_ubezpieczen.service.KlientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static com.muka.modul_ubezpieczen.service.KlientDTO.ofKlient;
+import static com.muka.modul_ubezpieczen.service.dto.KlientDTO.ofKlient;
 
 /**
  * Created by Magda on 17.12.2017.
@@ -26,30 +27,30 @@ public class KlientController {
     KlientService klientService;
 
     @PostMapping()
-    public ResponseEntity<KlientDTO> addKlient(KlientDTO klient) throws URISyntaxException {
+    public ResponseEntity<KlientDTO> dodajKlienta(KlientDTO klient) throws URISyntaxException {
 
-        Klient klientToPersist = new Klient(klient.getImie(), klient.getNazwisko(), klient.getAdresZamieszkania(),klient.getKodPocztowy(), klient.getEmail(), klient.getNumerTelefonu(), klient.getPesel(), klient.getSeriaDowodu());
-        Klient persistedKlient = klientService.addKlient(klientToPersist);
+        Klient klientToPersist = Klient.builder()
+            .imie(klient.getImie())
+            .nazwisko(klient.getNazwisko())
+            .adres(klient.getAdresZamieszkania())
+            .kodPocztowy(klient.getKodPocztowy())
+            .email(klient.getEmail())
+            .numerTelefonu(klient.getNumerTelefonu())
+            .pesel(klient.getPesel())
+            .seriaDowodu(klient.getSeriaDowodu())
+            .build();
+        Klient persistedKlient = klientService.dodajKlienta(klientToPersist);
 
-        return ResponseEntity.created(new URI("/api/klient/" + persistedKlient.getIdKlient()))
+        return ResponseEntity.created(new URI("/api/klient/" + persistedKlient.getId()))
             .body(ofKlient(persistedKlient));
     }
 
 
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<?> pobierzKlientow() {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return ResponseEntity.ok(klientService.pobierzKlientow());
+    }
 
 
 

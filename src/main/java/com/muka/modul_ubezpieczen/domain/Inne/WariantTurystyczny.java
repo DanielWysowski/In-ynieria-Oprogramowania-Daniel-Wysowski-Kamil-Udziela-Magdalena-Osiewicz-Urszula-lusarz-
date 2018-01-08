@@ -24,6 +24,7 @@ public class WariantTurystyczny {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "ubezpieczenia_id")
     @ManyToOne
     private Ubezpieczenie ubezpieczenie;
 

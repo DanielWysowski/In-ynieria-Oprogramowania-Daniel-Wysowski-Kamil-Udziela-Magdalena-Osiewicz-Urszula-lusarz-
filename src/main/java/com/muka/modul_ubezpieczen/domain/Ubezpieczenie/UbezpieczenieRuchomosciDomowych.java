@@ -1,7 +1,9 @@
 package com.muka.modul_ubezpieczen.domain.Ubezpieczenie;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,8 +22,9 @@ public class UbezpieczenieRuchomosciDomowych {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idUbezpieczenieRuchomosciDomowych;
+    private Long id;
 
+    @Setter
     @Column(name = "Koszt")
     private double koszt;
 
@@ -30,5 +33,14 @@ public class UbezpieczenieRuchomosciDomowych {
 
     @OneToOne
     private  PolisaMieszkaniowa polisaMieszkaniowa;
+
+
+
+        @Builder
+        public UbezpieczenieRuchomosciDomowych (double koszt, LocalDateTime data, PolisaMieszkaniowa polisaMieszkaniowa){
+        this.koszt=koszt;
+        this.data=data;
+        this.polisaMieszkaniowa=polisaMieszkaniowa;
+    }
 
 }

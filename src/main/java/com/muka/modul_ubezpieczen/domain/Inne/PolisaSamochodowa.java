@@ -28,17 +28,20 @@ public class PolisaSamochodowa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "ubezpieczenia_id")
     @ManyToOne
     private Ubezpieczenie ubezpieczenie;  // ubezpieczenia
 
+    @JoinColumn(name = "Klienci_id")
     @ManyToOne
     private Klient klient;
 
+    @JoinColumn(name = "Pracownicy_id")
     @ManyToOne
     private Pracownik pracownik;
 
-    @ManyToOne // wiec albo tutaj manyToOne i obiekt samochodu albo w samochodzie OneTOMany i lista, zalezy jak sie bedzie przechodzilo
-    private Samochod samochod;  // czyli mi zle kaales
+    @ManyToOne
+    private Samochod samochod;
 
     @Column(name = "Data_dodania ", length = 60)
     private LocalDateTime dataDodania = now();

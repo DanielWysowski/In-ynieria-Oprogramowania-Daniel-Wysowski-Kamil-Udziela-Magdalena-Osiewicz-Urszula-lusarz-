@@ -21,7 +21,7 @@ logging:
 
 spring:
     profiles:
-        active: dev
+        active: no-liquibase
         include: swagger
     devtools:
         restart:
@@ -48,7 +48,7 @@ spring:
         hibernate:
               ddl-auto: update
         properties:
-            hibernate.id.new_generator_mappings: true
+            hibernate.id.new_generator_mappings: false
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true

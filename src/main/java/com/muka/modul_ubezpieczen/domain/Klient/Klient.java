@@ -1,6 +1,5 @@
 package com.muka.modul_ubezpieczen.domain.Klient;
 
-import io.swagger.models.auth.In;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +22,7 @@ public class Klient {
     @Id
     @Column(name = "ID", length = 60)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idKlient;
+    private Long id;
 
     @Column(name = "Imie ", length = 60)
     private String imie;
@@ -31,32 +30,32 @@ public class Klient {
     @Column(name = "Nazwisko ", length = 60)
     private String nazwisko;
 
-    @Column(name = "Adres", length = 60)
-    private String adresZamieszkania;
+    @Column(name = "Adres_zamieszkania", length = 60)
+    private String adres;
 
-    @Column(name = "KodPoczztowy ", length = 6)
+    @Column(name = "Kod_pocztowy ", length = 6)
     private Integer kodPocztowy;
 
     @Column(name = "Email ", length = 60)
     private String email;
 
-    @Column(name = "NumerTelefonu ", length = 12)
+    @Column(name = "Numer_telefonu ", length = 12)
     private Integer numerTelefonu;
 
     @Column(name = "PESEL ", length = 60)
     private Long pesel;
 
-    @Column(name = "SeriaDowodu", length = 10)
+    @Column(name = "Seria_dowodu", length = 10)
     private String seriaDowodu;
 
 
 
     @Builder
-    public Klient(String imie, String nazwisko, String adresZamieszkania, Integer kodPocztowy, String email, Integer numerTelefonu, Long pesel, String seriaDowodu) {
+    public Klient(String imie, String nazwisko, String adres, Integer kodPocztowy, String email, Integer numerTelefonu, Long pesel, String seriaDowodu) {
 
         this.imie = imie;
         this.nazwisko=nazwisko;
-        this.adresZamieszkania=adresZamieszkania;
+        this.adres = adres;
         this.kodPocztowy=kodPocztowy;
         this.email=email;
         this.numerTelefonu=numerTelefonu;

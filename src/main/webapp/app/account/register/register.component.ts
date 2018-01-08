@@ -1,9 +1,14 @@
-import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiLanguageService } from 'ng-jhipster';
-
-import { Register } from './register.service';
-import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
+import {Component, OnInit, AfterViewInit, Renderer, ElementRef} from "@angular/core";
+import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {JhiLanguageService} from "ng-jhipster";
+import {Register} from "./register.service";
+import {LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE} from "../../shared";
+import {PolisaMieszkaniowa} from "../../PolisaMieszkaniowa";
+import {Http} from "@angular/http";
+import {Klient} from "../../Klient";
+import {Polisa} from "../../home/polisa.service";
+import {ZabezpieczeniePrzeciwkradziezowe} from "../../ZabezpieczeniePrzeciwkradziezowe";
+import {UbezpieczenieRuchomosciDomowych} from "../../UbezpieczenieRuchomosciDomowych";
 
 @Component({
     selector: 'jhi-register',
@@ -20,13 +25,31 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     success: boolean;
     modalRef: NgbModalRef;
 
-    constructor(
-        private languageService: JhiLanguageService,
-        private loginModalService: LoginModalService,
-        private registerService: Register,
-        private elementRef: ElementRef,
-        private renderer: Renderer
-    ) {
+
+    private _webApiUrl = 'http://localhost:8080/api/';
+    public polisy: PolisaMieszkaniowa[];
+    public klienci: Klient[];
+    public polisa: PolisaMieszkaniowa;
+    public polisaId: number;
+    public zabezpieczeniaPrzeciwkradziezowe: ZabezpieczeniePrzeciwkradziezowe;
+    public ubezpieczenieRuchomosciDomowych: UbezpieczenieRuchomosciDomowych;
+    public kwota: number;
+    public kwota2: number;
+    public klientDTO: Klient = null;
+    public miasto: string = '';
+    public kodPocztowy: number = null;
+    public ulica: string = '';
+    public numerBudynku: number = null;
+    public numerMieszkania: number = null;
+
+
+    constructor(private languageService: JhiLanguageService,
+                private loginModalService: LoginModalService,
+                private registerService: Register,
+                private elementRef: ElementRef,
+                private renderer: Renderer,
+                private http: Http,
+                private polisaService: Polisa) {
     }
 
     ngOnInit() {
@@ -55,9 +78,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
     }
 
-    openLogin() {
-        this.modalRef = this.loginModalService.open();
-    }
 
     private processError(response) {
         this.success = null;
@@ -69,4 +89,41 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.error = 'ERROR';
         }
     }
+
+
+    public pobierzPolise = () => {
+        this.polisaId = this.polisaService.getPolisaId();
+        // this.http.get(this._webApiUrl + 'polisa_mieszkaniowa/' + this.polisaService.getPolisaId())
+        //     .subscribe(result => this.polisa = result.json());
+    };
+
+
+    dodajZabezpieczeniePrzeciwkradziezowe() {
+        let pol = new PolisaMieszkaniowa(null, null, null, null, null, null, this.polisaId);
+        console.log(pol);
+        let zab = new ZabezpieczeniePrzeciwkradziezowe(pol, this.kwota);
+        console.log(zab);
+        this.http.post(this._webApiUrl + 'zabezpieczenie_przeciwkradziezowe', zab)
+            .subscribe(data => {
+
+            }, error => {
+                console.log(error.json());
+            });
+    };
+
+
+    dodajUbezpieczenieRuchomosciDomowych() {
+        let pol = new PolisaMieszkaniowa(null, null, null, null, null, null, this.polisaId);
+        console.log(pol);
+        let ubezp = new UbezpieczenieRuchomosciDomowych(pol, this.kwota2);
+        this.http.post(this._webApiUrl + 'ubezpieczenie_ruchomosci_domowych', ubezp)
+            .subscribe(data => {
+
+            }, error => {
+                console.log(error.json());
+            });
+    };
+
+
+
 }

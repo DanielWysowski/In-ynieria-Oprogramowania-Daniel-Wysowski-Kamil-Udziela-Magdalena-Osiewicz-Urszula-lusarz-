@@ -7,3 +7,6 @@ export const navbarRoute: Route = {
     component: NavbarComponent,
     outlet: 'navbar'
 };
+
+
+

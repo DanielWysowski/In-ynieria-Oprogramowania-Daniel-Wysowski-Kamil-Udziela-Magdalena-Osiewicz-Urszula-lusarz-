@@ -26,15 +26,19 @@ public class PolisaTurystyczna {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "ubezpieczenia_id")
     @ManyToOne
     private Ubezpieczenie ubezpieczenie;  // ubezpieczenia
 
+    @JoinColumn(name = "Warianty_turystyczne_id")
     @ManyToOne
     private WariantTurystyczny wariantTurystyczny;
 
+    @JoinColumn(name = "Klienci_id")
     @ManyToOne
     private Klient klient;//
 
+    @JoinColumn(name = "Pracownicy_id")
     @ManyToOne
     private Pracownik pracownik;
 

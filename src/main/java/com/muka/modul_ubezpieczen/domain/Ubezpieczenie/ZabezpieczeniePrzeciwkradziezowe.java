@@ -1,7 +1,10 @@
 package com.muka.modul_ubezpieczen.domain.Ubezpieczenie;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,15 +23,27 @@ public class ZabezpieczeniePrzeciwkradziezowe {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idZabezpieczeniePrzeciwkradziezowe;
+    private Long id;
 
+    @Setter
     @Column(name = "Koszt")
     private double koszt;
 
+    @Setter
     @Column(name = "Data")
     private LocalDateTime data = now();
 
+    @Setter
     @OneToOne
     private  PolisaMieszkaniowa polisaMieszkaniowa;
+
+
+    @Builder
+    public ZabezpieczeniePrzeciwkradziezowe ( LocalDateTime data, PolisaMieszkaniowa polisaMieszkaniowa, double koszt){
+        this.koszt=koszt;
+        this.data=data;
+        this.polisaMieszkaniowa=polisaMieszkaniowa;
+    }
+
 
 }
