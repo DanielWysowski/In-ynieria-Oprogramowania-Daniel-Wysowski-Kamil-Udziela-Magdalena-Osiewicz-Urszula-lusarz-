@@ -1,5 +1,9 @@
 package com.muka.modul_ubezpieczen.repository;
 
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,4 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ZabezpieczeniePrzeciwkradziezoweRepository extends JpaRepository<ZabezpieczeniePrzeciwkradziezowe, Long> {
+    ZabezpieczeniePrzeciwkradziezowe findByPolisaMieszkaniowaIdPolisaMieszkaniowa(Long polisaMieszkaniowaId);
+
+
 }

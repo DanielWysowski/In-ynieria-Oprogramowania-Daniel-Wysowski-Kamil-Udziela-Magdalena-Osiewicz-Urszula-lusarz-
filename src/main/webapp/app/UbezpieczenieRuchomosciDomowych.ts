@@ -5,6 +5,6 @@ import {PolisaMieszkaniowa} from "./PolisaMieszkaniowa";
 
 export class UbezpieczenieRuchomosciDomowych{
 
-    constructor(public polisaMieszkaniowaDTO: PolisaMieszkaniowa, public koszt: number)
+    constructor(public polisaMieszkaniowaDTO: PolisaMieszkaniowa, public koszt: number, public  id:any=null, public data: Date=null)
     {};
 }

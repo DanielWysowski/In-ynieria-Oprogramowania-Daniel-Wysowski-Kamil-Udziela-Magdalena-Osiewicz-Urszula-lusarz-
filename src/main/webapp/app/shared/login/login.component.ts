@@ -10,6 +10,8 @@ import {Polisa} from "../../home/polisa.service";
 import {Klient} from "../../Klient";
 import {PolisaMieszkaniowa} from "../../PolisaMieszkaniowa";
 import {FakturaMieszkaniowa} from "../../FakturaMieszkaniowa";
+import {UbezpieczenieRuchomosciDomowych} from "../../UbezpieczenieRuchomosciDomowych";
+import {ZabezpieczeniePrzeciwkradziezowe} from "../../ZabezpieczeniePrzeciwkradziezowe";
 
 @Component({
     selector: 'jhi-login-modal',
@@ -34,6 +36,9 @@ export class JhiLoginModalComponent implements  AfterViewInit {
     public numerMieszkania: number;
     public polisy: PolisaMieszkaniowa[];
     public fakturaMieszkaniowa: FakturaMieszkaniowa;
+    public ubezpieczenieRuchomosciDomowych: UbezpieczenieRuchomosciDomowych;
+    public koszt: number;
+    public zabezpieczeniePrzeciwkradziezowe: ZabezpieczeniePrzeciwkradziezowe;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -126,6 +131,46 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             .subscribe(result => this.polisy = result.json());
     };
 
+    public pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa = (polisaId) => {
+        this.http.get(this._webApiUrl + 'ubezpieczenie_ruchomosci_domowych/' + polisaId)
+            .subscribe(result => {
+                this.ubezpieczenieRuchomosciDomowych = result.json();
+                console.log(this.ubezpieczenieRuchomosciDomowych);
+            },  error => {
+                console.log(error.json());
+            });
+        // .subscribe(result => this.polisa = result.json());
+    };
+
+    public pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa = (polisaId) => {
+        this.http.get(this._webApiUrl + 'zabezpieczenie_przeciwkradziezowe/' + polisaId)
+            .subscribe(result => {
+                this.zabezpieczeniePrzeciwkradziezowe = result.json();
+                console.log(this.zabezpieczeniePrzeciwkradziezowe);
+            },  error => {
+                console.log(error.json());
+            });
+        // .subscribe(result => this.polisa = result.json());
+    };
+
+    public modyfikujZabezpieczeniePrzeciwkradziezowe(nowyKoszt){
+        this.zabezpieczeniePrzeciwkradziezowe.koszt = nowyKoszt;
+        this.http.put(this._webApiUrl + 'zabezpieczenie_przeciwkradziezowe', this.zabezpieczeniePrzeciwkradziezowe)
+            .subscribe(data => {
+            }, error => {
+                console.log(error.json());
+            });
+    };
+
+
+    public modyfikujUbezpieczeniaRuchomosciDomowych(nowyKoszt){
+        this.ubezpieczenieRuchomosciDomowych.koszt = nowyKoszt;
+        this.http.put(this._webApiUrl + 'ubezpieczenie_ruchomosci_domowych', this.ubezpieczenieRuchomosciDomowych)
+            .subscribe(data => {
+            }, error => {
+                console.log(error.json());
+            });
+    };
 
 
 

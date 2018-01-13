@@ -13,6 +13,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import static com.muka.modul_ubezpieczen.service.dto.PolisaMieszkaniowaDTO.ofPolisaMieszkaniowa;
+import static com.muka.modul_ubezpieczen.service.dto.UbezpieczenieRuchomosciDomowychDTO.ofUbezpieczenieRuchomosciDomowych;
+import static com.muka.modul_ubezpieczen.service.dto.ZabezpieczeniePrzeciwkradziezoweDTO.ofZabezpieczeniePrzeciwkradziezowe;
 import static java.time.LocalDateTime.now;
 
 /**
@@ -45,7 +47,7 @@ public class ZabezpieczeniePrzeciwkradziezoweRestController {
         ZabezpieczeniePrzeciwkradziezowe persistedZabezpieczeniePrzeciwkradziezowe = zabezpieczeniePrzeciwkradziezoweService.dodajZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezoweToPersist);
 
         return ResponseEntity.created(new URI("/api/zabezpieczenie_przeciwkradziezowe/" + persistedZabezpieczeniePrzeciwkradziezowe.getId()))
-            .body(ZabezpieczeniePrzeciwkradziezoweDTO.ofZabezpieczeniePrzeciwkradziezowe(persistedZabezpieczeniePrzeciwkradziezowe));
+            .body(ofZabezpieczeniePrzeciwkradziezowe(persistedZabezpieczeniePrzeciwkradziezowe));
 
     }
 
@@ -61,14 +63,18 @@ public class ZabezpieczeniePrzeciwkradziezoweRestController {
 
         ZabezpieczeniePrzeciwkradziezowe updatedZabezpieczeniePrzeciwkradziezowe = zabezpieczeniePrzeciwkradziezoweService.modyfikujZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezoweToUpdate);
 
-        return ResponseEntity.ok(ZabezpieczeniePrzeciwkradziezoweDTO.ofZabezpieczeniePrzeciwkradziezowe(updatedZabezpieczeniePrzeciwkradziezowe));
+        return ResponseEntity.ok(ofZabezpieczeniePrzeciwkradziezowe(updatedZabezpieczeniePrzeciwkradziezowe));
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> pobierzZabezpieczeniaPrzeciwkradziezowe() {
         return ResponseEntity.ok(zabezpieczeniePrzeciwkradziezoweService.pobierzZabezpieczeniaPrzeciwkradziezowe());
     }
+    @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+    public ResponseEntity<?> pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(@PathVariable Long id) {
 
+        return ResponseEntity.ok(ofZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezoweService.pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(id)));
+    }
 
 
 
