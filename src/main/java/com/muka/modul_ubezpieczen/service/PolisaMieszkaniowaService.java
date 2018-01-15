@@ -30,6 +30,12 @@ public class PolisaMieszkaniowaService {
 
     public PolisaMieszkaniowa dodajPoliseMieszkaniowa(PolisaMieszkaniowa polisaMieszkaniowa) {
         return polisaMieszkaniowaRepository.save(polisaMieszkaniowa);
+
+//        PolisaMieszkaniowa p = polisaMieszkaniowaRepository.save(polisaMieszkaniowa);
+//        PolisaMieszkaniowa p2 = PolisaMieszkaniowa.builder()
+//            .numerMieszkania(p.getNumerMieszkania() + 1)
+//            .build();
+//        return p2;
     }
 
     public PolisaMieszkaniowa uaktualnijPoliseMieszkaniowa(PolisaMieszkaniowa polisaMieszkaniowa) {
