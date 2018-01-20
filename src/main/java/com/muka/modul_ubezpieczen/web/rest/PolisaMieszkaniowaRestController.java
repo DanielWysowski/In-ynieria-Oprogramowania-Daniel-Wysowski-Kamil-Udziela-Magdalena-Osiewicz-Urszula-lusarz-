@@ -70,6 +70,18 @@ public class PolisaMieszkaniowaRestController {
     }
 
 
+    @DeleteMapping(value = "/ubezpieczenie-ruchomosci-domowych/{polisaMieszkaniowaId}")
+    public ResponseEntity<Void> deleteUbezpieczenieRuchomosciDomowychByPolisaMieszkaniowaId(@PathVariable Long polisaMieszkaniowaId) {
+        polisaMieszkaniowaService.deleteUbezpieczenieRuchomosciDomowych(polisaMieszkaniowaId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping(value = "/zabezpieczenie-przeciwkradziezowe/{polisaMieszkaniowaId}")
+    public ResponseEntity<Void> deleteZabezpieczeniePrzeciwkradziezoweByPolisaMieszkaniowaId(@PathVariable Long polisaMieszkaniowaId) {
+        polisaMieszkaniowaService.deleteZabezpieczeniePrzeciwkradziezowe(polisaMieszkaniowaId);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
     @RequestMapping(method = RequestMethod.GET)
