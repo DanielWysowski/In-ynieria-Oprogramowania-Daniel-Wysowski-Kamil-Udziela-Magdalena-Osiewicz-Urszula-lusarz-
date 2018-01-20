@@ -57,7 +57,7 @@ public class PolisaMieszkaniowaRestController {
     @PutMapping
     public ResponseEntity<PolisaMieszkaniowaDTO> uaktualnijPoliseMieszkaniowa(@RequestBody PolisaMieszkaniowaDTO polisaMieszkaniowa) throws URISyntaxException {
 
-        FakturaMieszkaniowa fakturaMieszkaniowa = fakturaMieszkaniowaService.findOne(ofNullable(polisaMieszkaniowa.fakturaMieszkaniowaDTO)
+        FakturaMieszkaniowa fakturaMieszkaniowa = fakturaMieszkaniowaService.findOne(ofNullable(polisaMieszkaniowa.fakturaMieszkaniowa)
             .map(fakturaMieszkaniowaDTO -> fakturaMieszkaniowaDTO.getId())
             .orElse(-1L));
 
@@ -70,11 +70,6 @@ public class PolisaMieszkaniowaRestController {
     }
 
 
-    @DeleteMapping(value = "/ubezpieczenie-ruchomosci-domowych/{polisaMieszkaniowaId}")
-    public ResponseEntity<Void> deleteUbezpieczenieRuchomosciDomowychByPolisaMieszkaniowaId(@PathVariable Long polisaMieszkaniowaId) {
-        polisaMieszkaniowaService.deleteUbezpieczenieRuchomosciDomowych(polisaMieszkaniowaId);
-        return ResponseEntity.noContent().build();
-    }
 
 
     @RequestMapping(method = RequestMethod.GET)

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FakturaMieszkaniowaRepository extends JpaRepository <FakturaMieszkaniowa, Long> {
+
+  //  FakturaMieszkaniowa findFakturaMieszkaniowaByKlientId (Long id);
 }

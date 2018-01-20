@@ -172,6 +172,21 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             });
     };
 
+    public zrezygnujZUbezpieczeniaRuchomosciDomowych(polisaId){
+        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/ubezpieczenie-ruchomosci-domowych/'+ polisaId)
+            .subscribe(data => {
+            }, error => {
+                console.log(error.json());
+            });
+    };
+
+    public zrezygnujZZabezpieczeniaPrzeciwkradziezowego(polisaId){
+        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/zabezpieczenie-przeciwkradziezowe/'+ polisaId)
+            .subscribe(data => {
+            }, error => {
+                console.log(error.json());
+            });
+    };
 
 
 

@@ -25,7 +25,7 @@ public class PolisaMieszkaniowaDTO {
     public Integer numerBudynku;
     public Integer numerMieszkania;
     public KlientDTO klientDTO;
-    public FakturaMieszkaniowaDTO fakturaMieszkaniowaDTO;
+    public FakturaMieszkaniowaDTO fakturaMieszkaniowa;
 
     public static PolisaMieszkaniowaDTO ofPolisaMieszkaniowa(PolisaMieszkaniowa polisaMieszkaniowa) {
         FakturaMieszkaniowaDTO fakturaMieszkaniowa = ofNullable(polisaMieszkaniowa.getFakturaMieszkaniowa())
@@ -41,7 +41,7 @@ public class PolisaMieszkaniowaDTO {
             .numerBudynku(polisaMieszkaniowa.getNumerBudynku())
             .numerMieszkania(polisaMieszkaniowa.getNumerMieszkania())
             .klientDTO(ofKlient(polisaMieszkaniowa.getKlient()))
-            .fakturaMieszkaniowaDTO(fakturaMieszkaniowa)
+            .fakturaMieszkaniowa(fakturaMieszkaniowa)
             .build();
     }
 

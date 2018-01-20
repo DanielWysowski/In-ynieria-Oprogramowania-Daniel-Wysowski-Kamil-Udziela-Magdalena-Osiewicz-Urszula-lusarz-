@@ -24,6 +24,8 @@ public class ZabezpieczeniePrzeciwkradziezoweService {
 
     public ZabezpieczeniePrzeciwkradziezowe dodajZabezpieczeniePrzeciwkradziezowe(ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe){
         return  zabezpieczeniePrzeciwkradziezoweRepository.save(zabezpieczeniePrzeciwkradziezowe);
+       ////////////////////////////////////////
+
     }
 
     public ZabezpieczeniePrzeciwkradziezowe findOneById(Long zabezpieczeniePrzeciwkradziezoweId) {

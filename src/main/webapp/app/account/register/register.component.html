@@ -6,7 +6,7 @@
             <div class="col-md-9">
                 <h2><a href="http://www.jhipster.tech/" target="_blank" rel="noopener"> Gratulujemy! </a></h2>
                 <br/>
-                <h2><a target="_blank" rel="noopener"> Numer Twojej nowej polisy mieszkaniowej to: </a>
+                <h2> <a target="_blank" rel="noopener"> Numer Twojej nowej polisy mieszkaniowej to: </a>
                     <button *ngIf="polisaId == null" type="submit" class="btn btn-primary" class="alert-link" (click)="pobierzPolise()"> ??? </button>
 
                     <h2>{{polisaId}}</h2>
@@ -68,5 +68,52 @@
 
         </div>
     </div>
+
+
+
+<div>
+    <button  type="submit" class="btn btn-primary" class="alert-link"  > administrator </button>
+
+    <h2> <input type="password" class="form-control" [(ngModel)]="haselko"
+           required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">  </h2>
+
+    <div *ngIf=" haselko == 'muka' ">
+
+        <label> do zaplaty </label>
+        <input type="text" class="form-control" [(ngModel)]="kwotaF"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+        <label> opis  </label>
+        <input type="text" class="form-control" [(ngModel)]="opis"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+
+        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="dodajFakture()" > dodaj </button>
+
+    <h2>
+        <!--{{polisaId}} <br/> {{opis}} -->
+        <br/>
+        numer dodanej faktury to: {{fakturaMieszkaniowa.id}} </h2>
+
+
+        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="pobierzFakturyMieszkaniowe()" > wszytskie fakturt </button>
+
+        <div *ngFor="let faktura of faktury">
+            <!--<div *ngIf="faktura.id == indexOf(id.max)">-->
+            {{faktura.id}} -> {{faktura.data}}
+           <!--</div>-->
+        </div>
+        <br/> <br/>
+        <label> dodaj do rachunku fakture nr  </label>
+        <input type="text" class="form-control" [(ngModel)]="fakturaId"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="uaktualnijPoliseMieszkaniowa(fakturaId)" > uaktualnij </button>
+
+
+
+    </div>
+</div>
+
 
 </div>

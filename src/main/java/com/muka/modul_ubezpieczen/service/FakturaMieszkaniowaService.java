@@ -35,6 +35,10 @@ public class FakturaMieszkaniowaService {
         return fakturaMieszkaniowaRepository.findAll();
     }
 
+     //  public FakturaMieszkaniowa pobierzFakturaMieszkaniowaByPolisaMieszkaniowa (Long id)
+     //  {
+    //    return fakturaMieszkaniowaRepository.findFakturaMieszkaniowaByKlientId(id);
+    //   }
 
 
 }

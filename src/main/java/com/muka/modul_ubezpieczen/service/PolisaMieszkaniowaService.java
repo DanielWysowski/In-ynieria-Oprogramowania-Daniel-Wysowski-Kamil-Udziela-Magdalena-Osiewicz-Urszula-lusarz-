@@ -1,8 +1,10 @@
 package com.muka.modul_ubezpieczen.service;
 
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.PolisaMieszkaniowaRepository;
 import com.muka.modul_ubezpieczen.repository.UbezpieczenieRuchomosciDomowychRepository;
+import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,9 @@ public class PolisaMieszkaniowaService {
     @Autowired
     private UbezpieczenieRuchomosciDomowychRepository ubezpieczenieRuchomosciDomowychRepository;
 
+    @Autowired
+    private ZabezpieczeniePrzeciwkradziezoweRepository zabezpieczeniePrzeciwkradziezoweRepository;
+
     public PolisaMieszkaniowa dodajPoliseMieszkaniowa(PolisaMieszkaniowa polisaMieszkaniowa) {
         return polisaMieszkaniowaRepository.save(polisaMieszkaniowa);
 
@@ -52,6 +57,10 @@ public class PolisaMieszkaniowaService {
 
     public void deleteUbezpieczenieRuchomosciDomowych(Long polisaMieszkaniowaId) {
         ubezpieczenieRuchomosciDomowychRepository.delete(ubezpieczenieRuchomosciDomowychRepository.findByPolisaMieszkaniowaIdPolisaMieszkaniowa(polisaMieszkaniowaId));
+    }
+
+    public void deleteZabezpieczeniePrzeciwkradziezowe(Long polisaMieszkaniowaId) {
+        zabezpieczeniePrzeciwkradziezoweRepository.delete(zabezpieczeniePrzeciwkradziezoweRepository.findByPolisaMieszkaniowaIdPolisaMieszkaniowa(polisaMieszkaniowaId));
     }
 
     public List<PolisaMieszkaniowa> pobierzPolisy() {

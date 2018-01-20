@@ -1,8 +1,10 @@
 package com.muka.modul_ubezpieczen.service;
 
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
+import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.PolisaMieszkaniowaRepository;
 import com.muka.modul_ubezpieczen.repository.UbezpieczenieRuchomosciDomowychRepository;
+import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -29,6 +31,9 @@ public class PolisaMieszkaniowaServiceTest {
     @Mock
     UbezpieczenieRuchomosciDomowychRepository ubezpieczenieRuchomosciDomowychRepository;
 
+    @Mock
+    ZabezpieczeniePrzeciwkradziezoweRepository zabezpieczeniePrzeciwkradziezoweRepository;
+
     @Test
     public void shouldReturnPolisaMieszkaniowa() {
         PolisaMieszkaniowa polisaMieszkaniowa = PolisaMieszkaniowa.builder()
@@ -41,6 +46,7 @@ public class PolisaMieszkaniowaServiceTest {
         PolisaMieszkaniowa dodanaPolisa = polisaMieszkaniowaService.dodajPoliseMieszkaniowa(polisaMieszkaniowa);
 
         assertEquals(polisaMieszkaniowa.getNumerMieszkania(), dodanaPolisa.getNumerMieszkania());
+        assertEquals(polisaMieszkaniowa.getMiasto(), dodanaPolisa.getMiasto());
     }
 
 

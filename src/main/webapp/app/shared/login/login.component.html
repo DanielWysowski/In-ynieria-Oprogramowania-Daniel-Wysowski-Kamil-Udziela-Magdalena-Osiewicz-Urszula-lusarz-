@@ -9,7 +9,7 @@
     <div *ngIf="polisa != null">
         {{polisa.id}}   <br/>  {{polisa.ulica}} <br/>  {{polisa.numerBudynku}} <br/>  {{polisa.miasto}} <br/>  {{polisa.kodPocztowy}} <br/>   {{polisa.ulica}}  <br/> <br/>
 
-        {{polisa.klientDTO.id}}  <br/>  {{polisa.klientDTO.imie}} <br/>  {{polisa.klientDTO.nazwisko}}   <br/>  {{polisa.klientDTO.email}} /// {{polisa.fakturaMieszkaniowa.data}}
+        {{polisa.klientDTO.id}}  <br/>  {{polisa.klientDTO.imie}} <br/>  {{polisa.klientDTO.nazwisko}}   <br/>  {{polisa.klientDTO.email}}   <br/>  {{polisa.fakturaMieszkaniowa.idFaktura}}
 
 <!--</h4>-->
 
@@ -37,9 +37,10 @@
 
             </h4> </div>
 
-
-
                <br/>
+
+            <button type="submit" class="btn btn-primary" class="alert-link" (click)="zrezygnujZUbezpieczeniaRuchomosciDomowych(polisaId)"  >  zrezygnuj z URD </button>
+
         </div>
 
 
@@ -50,14 +51,7 @@
 
     <div *ngIf=" zabezpieczeniePrzeciwkradziezowe!= null">
 
-
-
-
-
-
         {{zabezpieczeniePrzeciwkradziezowe.id}}   <br/>  {{zabezpieczeniePrzeciwkradziezowe.koszt}} <br/> {{zabezpieczeniePrzeciwkradziezowe.polisaMieszkaniowaDTO.miasto}}   <br/>  {{zabezpieczeniePrzeciwkradziezowe.data}}  <br/>
-
-
 
 
        <div> <h4><button  target="_blank" rel="noopener"   > Chcesz zmienic kwote zabezpiecznie?  </button>
@@ -72,6 +66,9 @@
 
 
         <br/>
+        <button type="submit" class="btn btn-primary" class="alert-link" (click)="zrezygnujZZabezpieczeniaPrzeciwkradziezowego(polisaId)"  >  zrezygnuj z zabezpieczenia </button>
+
+
     </div>
     </div>
     </div>
@@ -84,6 +81,7 @@
 
 
 </h4>
+<!--zeby si emoc do polisy odwolywac-->
 
 
 

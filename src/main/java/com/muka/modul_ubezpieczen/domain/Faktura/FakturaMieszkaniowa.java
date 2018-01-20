@@ -29,7 +29,7 @@ public class FakturaMieszkaniowa {
     @Id
     @Column(name = "ID ", length = 60)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idFaktura;
+    private Long id;
 
     @Column(name = "Kwota ", length = 60)
     private double kwota;

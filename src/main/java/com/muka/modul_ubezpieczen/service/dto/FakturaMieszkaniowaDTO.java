@@ -19,14 +19,14 @@ import static java.time.LocalDateTime.now;
 public class FakturaMieszkaniowaDTO {
 
     private Long id;
-    private double kwota;
+    private Double kwota;
     private String opis;
     private LocalDateTime data = now();
 
 
     public static FakturaMieszkaniowaDTO ofFakturaMieszkaniowa (FakturaMieszkaniowa fakturaMieszkaniowa){
         return FakturaMieszkaniowaDTO.builder()
-            .id(fakturaMieszkaniowa.getIdFaktura())
+            .id(fakturaMieszkaniowa.getId())
             .kwota(fakturaMieszkaniowa.getKwota())
             .opis(fakturaMieszkaniowa.getOpis())
             .data(fakturaMieszkaniowa.getData())

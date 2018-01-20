@@ -5,6 +5,6 @@
 
 export class FakturaMieszkaniowa{
 
-    constructor(public  idFaktura: number, public  kwota: number, public  opis: string, public data: Date )
+    constructor(public  id: number, public  kwota: number, public  opis: string, public data: Date )
     {};
 }

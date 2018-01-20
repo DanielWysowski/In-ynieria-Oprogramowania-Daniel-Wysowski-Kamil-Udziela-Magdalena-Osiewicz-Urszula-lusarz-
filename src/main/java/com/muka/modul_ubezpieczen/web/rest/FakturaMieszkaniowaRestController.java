@@ -5,14 +5,12 @@ import com.muka.modul_ubezpieczen.service.FakturaMieszkaniowaService;
 import com.muka.modul_ubezpieczen.service.dto.FakturaMieszkaniowaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import static com.muka.modul_ubezpieczen.service.dto.FakturaMieszkaniowaDTO.ofFakturaMieszkaniowa;
 
 
 /**
@@ -28,7 +26,7 @@ public class FakturaMieszkaniowaRestController {
 
 
     @PostMapping()
-    public ResponseEntity<FakturaMieszkaniowaDTO> dodajFakture(FakturaMieszkaniowaDTO fakturaMieszkaniowaDTO) throws URISyntaxException {
+    public ResponseEntity<FakturaMieszkaniowaDTO> dodajFakture(@RequestBody  FakturaMieszkaniowaDTO fakturaMieszkaniowaDTO) throws URISyntaxException {
 
         FakturaMieszkaniowa fakturaMieszkaniowaToPersist = FakturaMieszkaniowa.builder()
             .kwota(fakturaMieszkaniowaDTO.getKwota())
@@ -38,8 +36,8 @@ public class FakturaMieszkaniowaRestController {
 
         FakturaMieszkaniowa persistedFakturaMieszkaniowa = fakturaMieszkaniowaService.dodajFakture(fakturaMieszkaniowaToPersist);
 
-        return ResponseEntity.created(new URI("/api/faktura/" + persistedFakturaMieszkaniowa.getIdFaktura()))
-            .body(FakturaMieszkaniowaDTO.ofFakturaMieszkaniowa(persistedFakturaMieszkaniowa));
+        return ResponseEntity.created(new URI("/api/faktura/" + persistedFakturaMieszkaniowa.getId()))
+            .body(ofFakturaMieszkaniowa(persistedFakturaMieszkaniowa));
     }
 
 
@@ -48,5 +46,12 @@ public class FakturaMieszkaniowaRestController {
 
         return ResponseEntity.ok(fakturaMieszkaniowaService.pobierzFakturyMieszkaniowe());
     }
+
+
+ //   @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+//    public ResponseEntity<?> pobierzFakturaMieszkaniowaByKlientId(@PathVariable Long id) {
+
+   //     return ResponseEntity.ok(ofFakturaMieszkaniowa(fakturaMieszkaniowaService.pobierzFakturaMieszkaniowaByKlientId(id)));
+   // }
 
 }

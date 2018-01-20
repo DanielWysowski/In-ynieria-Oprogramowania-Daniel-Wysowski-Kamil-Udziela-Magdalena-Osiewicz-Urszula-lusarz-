@@ -9,6 +9,8 @@ import {Klient} from "../../Klient";
 import {Polisa} from "../../home/polisa.service";
 import {ZabezpieczeniePrzeciwkradziezowe} from "../../ZabezpieczeniePrzeciwkradziezowe";
 import {UbezpieczenieRuchomosciDomowych} from "../../UbezpieczenieRuchomosciDomowych";
+import {FakturaMieszkaniowa} from "../../FakturaMieszkaniowa";
+
 
 @Component({
     selector: 'jhi-register',
@@ -33,6 +35,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     public polisaId: number;
     public zabezpieczeniaPrzeciwkradziezowe: ZabezpieczeniePrzeciwkradziezowe;
     public ubezpieczenieRuchomosciDomowych: UbezpieczenieRuchomosciDomowych;
+    public fakturaMieszkaniowa: FakturaMieszkaniowa;
     public kwota: number;
     public kwota2: number;
     public klientDTO: Klient = null;
@@ -41,6 +44,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     public ulica: string = '';
     public numerBudynku: number = null;
     public numerMieszkania: number = null;
+    public fakturaId: number;
+    public opis: string = '';
+    public kwotaF: number;
+    public faktury: FakturaMieszkaniowa[];
+    public data: Date;
+//    public kwota: number;
 
 
     constructor(private languageService: JhiLanguageService,
@@ -49,7 +58,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
                 private elementRef: ElementRef,
                 private renderer: Renderer,
                 private http: Http,
-                private polisaService: Polisa) {
+                private polisaService: Polisa
+                //private fakturaService: Faktura
+    ) {
     }
 
     ngOnInit() {
@@ -124,6 +135,36 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             });
     };
 
+    dodajFakture() {
+        let faktura = new FakturaMieszkaniowa(this.fakturaId, this.kwotaF, this.opis, this.data); //
+        // console.log(faktura);
+        this.http.post(this._webApiUrl + 'faktura', faktura)
+            .subscribe(data => {
+                this.fakturaMieszkaniowa = data.json();
+                console.log(data.json());
+                console.log(this.fakturaMieszkaniowa);
+            }, error => {
+                console.log(error.json());
+            });
+
+    };
+
+    public pobierzFakturyMieszkaniowe = () => {
+        this.http.get(this._webApiUrl + 'faktura')
+
+            .subscribe(result => this.faktury = result.json());
+    };
+
+
+    public uaktualnijPoliseMieszkaniowa(fakturaId) {
+        let pol = new PolisaMieszkaniowa(null, null, null, null, null, null, this.polisaId, new FakturaMieszkaniowa(fakturaId, null, null, null));
+        console.log(pol);
+        this.http.put(this._webApiUrl + 'polisa_mieszkaniowa', pol)
+            .subscribe(data => {
+            }, error => {
+                console.log(error.json());
+            });
+    };
 
 
 }
