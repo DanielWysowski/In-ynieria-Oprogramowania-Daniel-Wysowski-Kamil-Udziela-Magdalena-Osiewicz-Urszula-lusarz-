@@ -25,17 +25,15 @@ public class KlientDTO {
     private Long pesel;
     private String seriaDowodu;
 
-    public KlientDTO(Long id)
-    {
-        this.id=id;
+    public KlientDTO(Long id) {
+        this.id = id;
     }
 
 
     public static KlientDTO ofKlient(Klient klient) {
         return new KlientDTO(klient.getId(), klient.getImie(), klient.getNazwisko(), klient.getAdres(),
-                             klient.getKodPocztowy(), klient.getEmail(), klient.getNumerTelefonu(), klient.getPesel(), klient.getSeriaDowodu());
+            klient.getKodPocztowy(), klient.getEmail(), klient.getNumerTelefonu(), klient.getPesel(), klient.getSeriaDowodu());
     }
-
 
 
 }

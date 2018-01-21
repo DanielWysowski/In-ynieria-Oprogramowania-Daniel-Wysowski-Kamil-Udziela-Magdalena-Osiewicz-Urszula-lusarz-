@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.time.LocalDateTime.now;
 
@@ -57,9 +55,6 @@ public class PolisaSamochodowa {
 
     @Column(name = "Status ", length = 60)
     private Integer status;
-
-
-
 
 
 }

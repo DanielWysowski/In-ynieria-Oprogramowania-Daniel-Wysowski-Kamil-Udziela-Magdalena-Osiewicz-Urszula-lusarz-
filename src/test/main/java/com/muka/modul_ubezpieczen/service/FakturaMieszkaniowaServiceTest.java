@@ -24,9 +24,9 @@ public class FakturaMieszkaniowaServiceTest {
     FakturaMieszkaniowaRepository fakturaMieszkaniowaRepository;
 
     @Test
-    public void shouldReturnFakturaMieszkaniowa(){
+    public void shouldReturnFakturaMieszkaniowa() {
 
-        FakturaMieszkaniowa fakturaMieszkaniowa= FakturaMieszkaniowa.builder()
+        FakturaMieszkaniowa fakturaMieszkaniowa = FakturaMieszkaniowa.builder()
             .kwota(89)
             .opis("pierwsza")
             .build();
@@ -34,12 +34,10 @@ public class FakturaMieszkaniowaServiceTest {
         when(fakturaMieszkaniowaRepository.save(fakturaMieszkaniowa)).thenReturn(fakturaMieszkaniowa);
         FakturaMieszkaniowa dodanaFakturaMieszkaniowa = fakturaMieszkaniowaService.dodajFakture(fakturaMieszkaniowa);
 
-        assertEquals(fakturaMieszkaniowa.getKwota(), dodanaFakturaMieszkaniowa.getKwota(), 0) ;
-        assertEquals(fakturaMieszkaniowa.getOpis(), dodanaFakturaMieszkaniowa.getOpis()) ;
+        assertEquals(fakturaMieszkaniowa.getKwota(), dodanaFakturaMieszkaniowa.getKwota(), 0);
+        assertEquals(fakturaMieszkaniowa.getOpis(), dodanaFakturaMieszkaniowa.getOpis());
 
     }
-
-
 
 
 }

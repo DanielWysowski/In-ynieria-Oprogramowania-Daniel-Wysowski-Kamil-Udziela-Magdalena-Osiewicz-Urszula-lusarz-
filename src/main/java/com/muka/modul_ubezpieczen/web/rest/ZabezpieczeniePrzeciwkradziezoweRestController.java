@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static com.muka.modul_ubezpieczen.service.dto.PolisaMieszkaniowaDTO.ofPolisaMieszkaniowa;
-import static com.muka.modul_ubezpieczen.service.dto.UbezpieczenieRuchomosciDomowychDTO.ofUbezpieczenieRuchomosciDomowych;
 import static com.muka.modul_ubezpieczen.service.dto.ZabezpieczeniePrzeciwkradziezoweDTO.ofZabezpieczeniePrzeciwkradziezowe;
 import static java.time.LocalDateTime.now;
 
@@ -70,12 +68,12 @@ public class ZabezpieczeniePrzeciwkradziezoweRestController {
     public ResponseEntity<?> pobierzZabezpieczeniaPrzeciwkradziezowe() {
         return ResponseEntity.ok(zabezpieczeniePrzeciwkradziezoweService.pobierzZabezpieczeniaPrzeciwkradziezowe());
     }
-    @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(@PathVariable Long id) {
 
         return ResponseEntity.ok(ofZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezoweService.pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(id)));
     }
-
 
 
 }

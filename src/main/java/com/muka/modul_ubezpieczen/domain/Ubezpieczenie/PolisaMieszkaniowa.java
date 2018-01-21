@@ -2,7 +2,6 @@ package com.muka.modul_ubezpieczen.domain.Ubezpieczenie;
 
 import com.muka.modul_ubezpieczen.domain.Faktura.FakturaMieszkaniowa;
 import com.muka.modul_ubezpieczen.domain.Inne.Pracownik;
-import com.muka.modul_ubezpieczen.domain.Inne.WariantTurystyczny;
 import com.muka.modul_ubezpieczen.domain.Klient.Klient;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Magda on 25.12.2017.
@@ -26,7 +23,7 @@ public class PolisaMieszkaniowa {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO) // duzo tu jest neipotrzebnych np praconicy ja z tego nei korzystam ale musiala model babzy
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idPolisaMieszkaniowa;
 
     @Setter
@@ -69,15 +66,15 @@ public class PolisaMieszkaniowa {
     private Integer numerMieszkania;
 
     @Builder
-    public PolisaMieszkaniowa(String miasto, Integer kodPcztowy, String ulica, Integer numerBudynku, Integer numerMieszkania, Klient klient, FakturaMieszkaniowa fakturaMieszkaniowa){
+    public PolisaMieszkaniowa(String miasto, Integer kodPcztowy, String ulica, Integer numerBudynku, Integer numerMieszkania, Klient klient, FakturaMieszkaniowa fakturaMieszkaniowa) {
 
-        this.miasto=miasto;
-        this.kodPcztowy=kodPcztowy;
-        this.ulica=ulica;
-        this.numerBudynku=numerBudynku;
-        this.numerMieszkania=numerMieszkania;
-        this.klient=klient;
-        this.fakturaMieszkaniowa=fakturaMieszkaniowa;
+        this.miasto = miasto;
+        this.kodPcztowy = kodPcztowy;
+        this.ulica = ulica;
+        this.numerBudynku = numerBudynku;
+        this.numerMieszkania = numerMieszkania;
+        this.klient = klient;
+        this.fakturaMieszkaniowa = fakturaMieszkaniowa;
 
     }
 

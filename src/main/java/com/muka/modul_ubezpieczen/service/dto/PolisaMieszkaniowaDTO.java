@@ -3,8 +3,8 @@ package com.muka.modul_ubezpieczen.service.dto;
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
 import lombok.*;
 
-import static com.muka.modul_ubezpieczen.service.dto.KlientDTO.ofKlient;
 import static com.muka.modul_ubezpieczen.service.dto.FakturaMieszkaniowaDTO.ofFakturaMieszkaniowa;
+import static com.muka.modul_ubezpieczen.service.dto.KlientDTO.ofKlient;
 import static java.util.Optional.ofNullable;
 
 /**
@@ -18,7 +18,6 @@ import static java.util.Optional.ofNullable;
 public class PolisaMieszkaniowaDTO {
 
     public Long id;
-    // public Long idPolisaMieszkaniowa;
     public String miasto;
     public Integer kodPocztowy;
     public String ulica;

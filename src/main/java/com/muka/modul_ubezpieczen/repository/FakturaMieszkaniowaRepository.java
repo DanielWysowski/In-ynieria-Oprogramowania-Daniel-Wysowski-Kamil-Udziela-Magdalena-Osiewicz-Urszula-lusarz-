@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by Magda on 28.12.2017.
  */
 @Repository
-public interface FakturaMieszkaniowaRepository extends JpaRepository <FakturaMieszkaniowa, Long> {
+public interface FakturaMieszkaniowaRepository extends JpaRepository<FakturaMieszkaniowa, Long> {
 
-  //  FakturaMieszkaniowa findFakturaMieszkaniowaByKlientId (Long id);
 }

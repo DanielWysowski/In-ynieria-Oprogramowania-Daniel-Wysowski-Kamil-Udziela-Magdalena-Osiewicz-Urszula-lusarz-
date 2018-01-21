@@ -83,13 +83,12 @@ public class PolisaMieszkaniowaRestController {
     }
 
 
-
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> pobierzPolisy() {
         return ResponseEntity.ok(polisaMieszkaniowaService.pobierzPolisy());
     }
 
-    @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> pobierzPoliseById(@PathVariable Long id) {
         return ResponseEntity.ok(ofPolisaMieszkaniowa(polisaMieszkaniowaService.findOneById(id)));
     }

@@ -32,15 +32,14 @@ public class UbezpieczenieRuchomosciDomowych {
     private LocalDateTime data = now();
 
     @OneToOne
-    private  PolisaMieszkaniowa polisaMieszkaniowa;
+    private PolisaMieszkaniowa polisaMieszkaniowa;
 
 
-
-        @Builder
-        public UbezpieczenieRuchomosciDomowych (double koszt, LocalDateTime data, PolisaMieszkaniowa polisaMieszkaniowa){
-        this.koszt=koszt;
-        this.data=data;
-        this.polisaMieszkaniowa=polisaMieszkaniowa;
+    @Builder
+    public UbezpieczenieRuchomosciDomowych(double koszt, LocalDateTime data, PolisaMieszkaniowa polisaMieszkaniowa) {
+        this.koszt = koszt;
+        this.data = data;
+        this.polisaMieszkaniowa = polisaMieszkaniowa;
     }
 
 }
