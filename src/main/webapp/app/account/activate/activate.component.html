@@ -17,30 +17,29 @@
  <!--alert-danger to rozowa ramka-->
 
 
-
-<div class="alert alert-danger" *ngIf="error" >
-<strong> Twoje dotychczaosowe faktury i rozliczenia :</strong> oljejejejje.
+<div class="alert alert-warning" *ngIf="error" xmlns="http://www.w3.org/1999/html">
+    <b class="font-weight-bold"  > <font size="6"> <p align="center">Twoje faktury i rozliczenia </p> </font></b>
 </div>
 
 
-<h4 >Ubezpieczenie mieszkaniowe nr <button *ngIf="polisaId == null" type="submit" class="btn btn-primary" class="alert-link" (click)="pobierzPolise()"  > ? </button>  {{polisaId}}
-
-</div>
-
-<h4 >  <button type="submit" class="btn btn-primary" class="alert-link"   (click)="pobierzPoliseById(polisaId)"  > po ID </button>
+<h4 class="font-weight-bold" style="font-size:30px" >Ubezpieczenie mieszkaniowe </h4><button  type="submit"   ng-click="isCollapsed = !isCollapsed"  (click)="pobierzPolise()" uib-collapse="isCollapsed"  style="width:170px; height:33px;" > <font size="4">Numer polisy:  {{polisaId}} </font> </button>
+<br/>
+    </div>
+<br/>
+    <button  class="link" (click)="pobierzPoliseById(polisaId)"> <font size="5" >Dane klienta: </font> </button>
 
    <br/> <br/>
     <div *ngIf="polisa != null">
-    id_polisy: {{polisa.id}} <br/> Dane Klienta: <br/> imie: {{polisa.klientDTO.imie}}<br/> nazwisko:{{polisa.klientDTO.nazwisko}} <br/> email:{{polisa.klientDTO.email}}<br/>
-    Adres: {{polisa.ulica}} {{polisa.numerBudynku}}/{{polisa.numerMieszkania}}, <br/>  {{polisa.miasto}} {{polisa.kodPocztowy}} <br/> <br/>
+        <p style="font-size:20px">  <a class="font-weight-bold">Imie: </a> {{polisa.klientDTO.imie}}<br/> <a class="font-weight-bold"> Nazwisko: </a>{{polisa.klientDTO.nazwisko}} <br/> <a class="font-weight-bold"> Adres email: </a>{{polisa.klientDTO.email}}<br/>
+        <a class="font-weight-bold">Ulica: </a>{{polisa.ulica}} <br/> <a class="font-weight-bold">Numer budynku: </a>{{polisa.numerBudynku}} <br/> <a class="font-weight-bold"> Numer mieszkania: </a>{{polisa.numerMieszkania}} <br/> <a class="font-weight-bold">Miasto: </a>{{polisa.miasto}} <br/> <a class="font-weight-bold">Kod pocztowy: </a>{{polisa.kodPocztowy}} <br/> <br/> </p>
 
 
         <div *ngIf="polisa.fakturaMieszkaniowa != null">
-    faktura_id:  {{polisa.fakturaMieszkaniowa.id}} <br/> DO ZAPLATY: {{polisa.fakturaMieszkaniowa.kwota}}zl <br/> <br/> OPIS: {{polisa.fakturaMieszkaniowa.opis}} <br/> DATA_WYSTAWIENIA:{{polisa.fakturaMieszkaniowa.data}}
+            <p style="font-size:20px"> <a class="font-weight-bold">  Numer faktury:</a>  {{polisa.fakturaMieszkaniowa.id}} <br/> <a class="font-weight-bold">Kwota do zapłaty: </a>{{polisa.fakturaMieszkaniowa.kwota}}zl <br/> <a class="font-weight-bold">Informacje: </a>{{polisa.fakturaMieszkaniowa.opis}} <br/><a class="font-weight-bold"> Data wystawienia faktury:  </a>{{polisa.fakturaMieszkaniowa.data}}</p>
        </div>
 
         <div *ngIf="polisa.fakturaMieszkaniowa == null">
-            NIE MASZ JESZCZE ŻADNYCH FAKTUR!
+            <p style="font-size:20px"> <a class="font-weight-bold" > Nie ma jeszcze faktury! </a></p>
 
         </div>
 
