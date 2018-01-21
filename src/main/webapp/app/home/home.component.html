@@ -5,7 +5,7 @@
         <br/>
         <br/>
 
-        <button type="submit"  class="btn btn-primary" class="alert-link"  (click)="pobierzKlientow()"> BAZA  </button>
+        <button type="submit"  class="btn btn-primary" class="alert-link"  (click)="pobierzKlientow()"> Baza klientów  </button>
 
         <br/>
         <br/>
@@ -16,9 +16,7 @@
     <div class="col-md-9">
 
 
-        <h2>  <a href="http://www.jhipster.tech/" target="_blank" rel="noopener"> Ubezpiecz swój dom - to proste! </a>  </h2>
-        <br/>
-        <br/>
+        <h2><b class="font-weight-bold"  > <font size="6.5">  <p align="center"> Ubezpiecz swój dom - to proste! </p> </font></h2>
 
           <div [ngSwitch]="isAuthenticated()">
               <div class="alert alert-success" *ngSwitchCase="true">
@@ -33,9 +31,9 @@
               </div>
 
               <div class="alert alert-warning" *ngSwitchCase="false">
-                  Niezależnie czy chcesz ubezpieczyć mieszkanie czy dom jednorodzinny wystarczy, że podasz nam  <a> ADRES NIERUCHOMOŚCI. </a>
+                  Niezależnie czy chcesz ubezpieczyć mieszkanie czy dom jednorodzinny wystarczy, że podasz nam  <a> adres nieruchomości. </a>
               </div>
-
+<br/>
               <div >
                   <div class="col-md-12">
 
@@ -73,11 +71,10 @@
               <br/>
               <br/>
 
-            <br/>
-              <br/>
+
               <p>
 
-              Jeśli masz jakieś pytania na temat naszego ubezpieczenia zadzwoń: 777 000 000
+                  <p align="center"> Jeśli masz jakieś pytania na temat naszego ubezpieczenia zadzwoń: 777 000 000 </p>
           </p>
 
 
