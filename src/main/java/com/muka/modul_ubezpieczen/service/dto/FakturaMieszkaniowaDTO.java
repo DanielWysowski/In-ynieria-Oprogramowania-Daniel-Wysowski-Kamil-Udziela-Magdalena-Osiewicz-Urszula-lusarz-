@@ -24,7 +24,7 @@ public class FakturaMieszkaniowaDTO {
     private LocalDateTime data = now();
 
 
-    public static FakturaMieszkaniowaDTO ofFakturaMieszkaniowa (FakturaMieszkaniowa fakturaMieszkaniowa){
+    public static FakturaMieszkaniowaDTO ofFakturaMieszkaniowa(FakturaMieszkaniowa fakturaMieszkaniowa) {
         return FakturaMieszkaniowaDTO.builder()
             .id(fakturaMieszkaniowa.getId())
             .kwota(fakturaMieszkaniowa.getKwota())

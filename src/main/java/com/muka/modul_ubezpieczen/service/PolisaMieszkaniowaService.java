@@ -1,7 +1,6 @@
 package com.muka.modul_ubezpieczen.service;
 
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.PolisaMieszkaniowaRepository;
 import com.muka.modul_ubezpieczen.repository.UbezpieczenieRuchomosciDomowychRepository;
 import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;

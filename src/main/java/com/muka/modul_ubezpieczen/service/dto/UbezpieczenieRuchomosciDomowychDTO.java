@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 
 import static com.muka.modul_ubezpieczen.service.dto.PolisaMieszkaniowaDTO.ofPolisaMieszkaniowa;
 import static java.time.LocalDateTime.now;
-import static java.util.Optional.ofNullable;
 
 /**
  * Created by Magda on 28.12.2017.
@@ -25,11 +24,8 @@ public class UbezpieczenieRuchomosciDomowychDTO {
     public PolisaMieszkaniowaDTO polisaMieszkaniowaDTO;
 
 
+    public static UbezpieczenieRuchomosciDomowychDTO ofUbezpieczenieRuchomosciDomowych(UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych) {
 
-    public static UbezpieczenieRuchomosciDomowychDTO ofUbezpieczenieRuchomosciDomowych(UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych){
-//        PolisaMieszkaniowaDTO polisaMieszkaniowaDTO = ofNullable(ubezpieczenieRuchomosciDomowych.getPolisaMieszkaniowa())
-//        .map(polisaMieszkaniowaDTO1 ->ofPolisaMieszkaniowa(polisaMieszkaniowaDTO1)
-//            .orElse(null);
 
         return UbezpieczenieRuchomosciDomowychDTO.builder()
             .id(ubezpieczenieRuchomosciDomowych.getId())
@@ -39,8 +35,6 @@ public class UbezpieczenieRuchomosciDomowychDTO {
             .build();
 
     }
-
-
 
 
 }

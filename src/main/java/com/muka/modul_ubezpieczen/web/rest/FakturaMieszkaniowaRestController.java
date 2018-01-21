@@ -26,7 +26,7 @@ public class FakturaMieszkaniowaRestController {
 
 
     @PostMapping()
-    public ResponseEntity<FakturaMieszkaniowaDTO> dodajFakture(@RequestBody  FakturaMieszkaniowaDTO fakturaMieszkaniowaDTO) throws URISyntaxException {
+    public ResponseEntity<FakturaMieszkaniowaDTO> dodajFakture(@RequestBody FakturaMieszkaniowaDTO fakturaMieszkaniowaDTO) throws URISyntaxException {
 
         FakturaMieszkaniowa fakturaMieszkaniowaToPersist = FakturaMieszkaniowa.builder()
             .kwota(fakturaMieszkaniowaDTO.getKwota())
@@ -48,10 +48,10 @@ public class FakturaMieszkaniowaRestController {
     }
 
 
- //   @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+    //   @RequestMapping(value ="/{id}",method = RequestMethod.GET)
 //    public ResponseEntity<?> pobierzFakturaMieszkaniowaByKlientId(@PathVariable Long id) {
 
-   //     return ResponseEntity.ok(ofFakturaMieszkaniowa(fakturaMieszkaniowaService.pobierzFakturaMieszkaniowaByKlientId(id)));
-   // }
+    //     return ResponseEntity.ok(ofFakturaMieszkaniowa(fakturaMieszkaniowaService.pobierzFakturaMieszkaniowaByKlientId(id)));
+    // }
 
 }

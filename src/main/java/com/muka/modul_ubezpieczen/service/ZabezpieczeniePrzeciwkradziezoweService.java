@@ -1,8 +1,5 @@
 package com.muka.modul_ubezpieczen.service;
 
-import com.muka.modul_ubezpieczen.domain.Faktura.FakturaMieszkaniowa;
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +19,8 @@ public class ZabezpieczeniePrzeciwkradziezoweService {
     ZabezpieczeniePrzeciwkradziezoweRepository zabezpieczeniePrzeciwkradziezoweRepository;
 
 
-    public ZabezpieczeniePrzeciwkradziezowe dodajZabezpieczeniePrzeciwkradziezowe(ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe){
-        return  zabezpieczeniePrzeciwkradziezoweRepository.save(zabezpieczeniePrzeciwkradziezowe);
-       ////////////////////////////////////////
+    public ZabezpieczeniePrzeciwkradziezowe dodajZabezpieczeniePrzeciwkradziezowe(ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe) {
+        return zabezpieczeniePrzeciwkradziezoweRepository.save(zabezpieczeniePrzeciwkradziezowe);
 
     }
 
@@ -44,7 +40,7 @@ public class ZabezpieczeniePrzeciwkradziezoweService {
         return zabezpieczeniePrzeciwkradziezoweRepository.findAll();
     }
 
-    public ZabezpieczeniePrzeciwkradziezowe pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(Long polisaMieszkaniowaId){
+    public ZabezpieczeniePrzeciwkradziezowe pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(Long polisaMieszkaniowaId) {
         return zabezpieczeniePrzeciwkradziezoweRepository.findByPolisaMieszkaniowaIdPolisaMieszkaniowa(polisaMieszkaniowaId);
     }
 

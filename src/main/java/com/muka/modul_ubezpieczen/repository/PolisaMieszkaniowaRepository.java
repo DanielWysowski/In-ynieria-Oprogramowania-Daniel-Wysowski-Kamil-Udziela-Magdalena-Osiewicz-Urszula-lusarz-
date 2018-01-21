@@ -11,5 +11,4 @@ import org.springframework.stereotype.Repository;
 public interface PolisaMieszkaniowaRepository extends JpaRepository<PolisaMieszkaniowa, Long> {
 
 
-
 }

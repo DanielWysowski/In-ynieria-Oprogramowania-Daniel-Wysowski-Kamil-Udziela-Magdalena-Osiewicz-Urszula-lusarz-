@@ -9,8 +9,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 /**
@@ -26,40 +24,31 @@ public class UbezpieczenieRuchomosciDomowychServiceTest {
     UbezpieczenieRuchomosciDomowychRepository ubezpieczenieRuchomosciDomowychRepository;
 
     @Test
-    public void shouldReturnUbezpieczenieRuchomoscidomowych(){
+    public void shouldReturnUbezpieczenieRuchomoscidomowych() {
 
-        UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych= UbezpieczenieRuchomosciDomowych.builder()
+        UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych = UbezpieczenieRuchomosciDomowych.builder()
             .koszt(200)
             .build();
 
         when(ubezpieczenieRuchomosciDomowychRepository.save(ubezpieczenieRuchomosciDomowych)).thenReturn(ubezpieczenieRuchomosciDomowych);
-        UbezpieczenieRuchomosciDomowych dodaneUbezpieczenieRuchomosciDomowych= ubezpieczenieRuchomosciDomowychService.dodajUbezpieczenieRuchomosciDomowych(ubezpieczenieRuchomosciDomowych);
+        UbezpieczenieRuchomosciDomowych dodaneUbezpieczenieRuchomosciDomowych = ubezpieczenieRuchomosciDomowychService.dodajUbezpieczenieRuchomosciDomowych(ubezpieczenieRuchomosciDomowych);
 
         assertEquals(ubezpieczenieRuchomosciDomowych.getKoszt(), dodaneUbezpieczenieRuchomosciDomowych.getKoszt(), 0);
 
     }
 
     @Test
-    public void shouldRetunUpdateUbezpieczenieRuchomosciDomowych()
-    {
-        UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych= UbezpieczenieRuchomosciDomowych.builder()
+    public void shouldRetunUpdateUbezpieczenieRuchomosciDomowych() {
+        UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych = UbezpieczenieRuchomosciDomowych.builder()
             .koszt(200)
             .build();
 
         when(ubezpieczenieRuchomosciDomowychRepository.save(ubezpieczenieRuchomosciDomowych)).thenReturn(ubezpieczenieRuchomosciDomowych);
-        UbezpieczenieRuchomosciDomowych dodaneUbezpieczenieRuchomosciDomowych= ubezpieczenieRuchomosciDomowychService.modyfikujUbezpieczenieRuchomosciDomowych(ubezpieczenieRuchomosciDomowych);
+        UbezpieczenieRuchomosciDomowych dodaneUbezpieczenieRuchomosciDomowych = ubezpieczenieRuchomosciDomowychService.modyfikujUbezpieczenieRuchomosciDomowych(ubezpieczenieRuchomosciDomowych);
 
         assertEquals(ubezpieczenieRuchomosciDomowych.getKoszt(), dodaneUbezpieczenieRuchomosciDomowych.getKoszt(), 0);
 
     }
-
-
-
-
-
-
-
-
 
 
 }
