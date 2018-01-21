@@ -1,8 +1,8 @@
 package com.muka.modul_ubezpieczen.web.rest;
 
 import com.muka.modul_ubezpieczen.domain.Klient.Klient;
-import com.muka.modul_ubezpieczen.service.dto.KlientDTO;
 import com.muka.modul_ubezpieczen.service.KlientService;
+import com.muka.modul_ubezpieczen.service.dto.KlientDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +51,6 @@ public class KlientController {
 
         return ResponseEntity.ok(klientService.pobierzKlientow());
     }
-
 
 
 }

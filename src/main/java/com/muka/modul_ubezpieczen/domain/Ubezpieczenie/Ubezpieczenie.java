@@ -1,14 +1,10 @@
 package com.muka.modul_ubezpieczen.domain.Ubezpieczenie;
 
-import com.muka.modul_ubezpieczen.domain.Inne.PolisaTurystyczna;
-import com.muka.modul_ubezpieczen.domain.Inne.WariantTurystyczny;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Blob;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Magda on 17.12.2017.

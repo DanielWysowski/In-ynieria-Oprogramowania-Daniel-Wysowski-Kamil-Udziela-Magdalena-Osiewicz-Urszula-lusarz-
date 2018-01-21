@@ -25,22 +25,16 @@ public class ZabezpieczeniePrzeciwkradziezoweDTO {
     public PolisaMieszkaniowaDTO polisaMieszkaniowaDTO;
 
 
-
-    public static ZabezpieczeniePrzeciwkradziezoweDTO ofZabezpieczeniePrzeciwkradziezowe(ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe){
-        //PolisaMieszkaniowaDTO polisaMieszkaniowaDTO = ofNullable(zabezpieczeniePrzeciwkradziezowe.getPolisaMieszkaniowa())
-            //.map(polisaMieszkaniowaDTO1 ->ofPolisaMieszkaniowa(polisaMieszkaniowaDTO1)
-           // .orElse(null);
+    public static ZabezpieczeniePrzeciwkradziezoweDTO ofZabezpieczeniePrzeciwkradziezowe(ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe) {
 
         return ZabezpieczeniePrzeciwkradziezoweDTO.builder()
-               .id(zabezpieczeniePrzeciwkradziezowe.getId())
-               .koszt(zabezpieczeniePrzeciwkradziezowe.getKoszt())
-               .data(zabezpieczeniePrzeciwkradziezowe.getData())
-               .polisaMieszkaniowaDTO(ofPolisaMieszkaniowa(zabezpieczeniePrzeciwkradziezowe.getPolisaMieszkaniowa()))
-               .build();
+            .id(zabezpieczeniePrzeciwkradziezowe.getId())
+            .koszt(zabezpieczeniePrzeciwkradziezowe.getKoszt())
+            .data(zabezpieczeniePrzeciwkradziezowe.getData())
+            .polisaMieszkaniowaDTO(ofPolisaMieszkaniowa(zabezpieczeniePrzeciwkradziezowe.getPolisaMieszkaniowa()))
+            .build();
 
     }
-
-
 
 
 }

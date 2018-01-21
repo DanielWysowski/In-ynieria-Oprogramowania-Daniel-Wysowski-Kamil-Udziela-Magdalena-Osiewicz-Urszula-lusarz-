@@ -42,7 +42,4 @@ public class Samochod {
     private String numerRejestracyjny;
 
 
-
-
-
 }

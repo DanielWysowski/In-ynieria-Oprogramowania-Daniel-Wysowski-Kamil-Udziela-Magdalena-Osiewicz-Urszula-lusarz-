@@ -25,7 +25,6 @@ public class KlientService {
         return klientRepository.save(klient);
     }
 
-
     public List<Klient> pobierzKlientow() {
         return klientRepository.findAll();
     }

@@ -1,6 +1,5 @@
 package com.muka.modul_ubezpieczen.domain.Inne;
 
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,12 +25,11 @@ public class ZgloszenieSzkodySamochodowej {
 
     @Setter
     @ManyToOne
-    //@JoinColumn (name = "Polisa_samochodowa_ID")
     private PolisaSamochodowa polisaSamochodowa;
 
 
     @Column(name = "Data_zgloszenia")
-    private LocalDateTime dataZgloszenia= now();
+    private LocalDateTime dataZgloszenia = now();
 
     @Column(name = "Status_zgloszenia")
     private String statusZgloszenia;

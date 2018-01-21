@@ -1,10 +1,7 @@
 package com.muka.modul_ubezpieczen.service;
 
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.UbezpieczenieRuchomosciDomowych;
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -36,28 +33,22 @@ public class ZabezpieczeniePrzeciwkradziezoweServiceTest {
 
         ZabezpieczeniePrzeciwkradziezowe dodaneZabezpieczeniePrzeciwkradziezowe = zabezpieczeniePrzeciwkradziezoweService.dodajZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezowe);
 
-        assertEquals(zabezpieczeniePrzeciwkradziezowe.getKoszt(), dodaneZabezpieczeniePrzeciwkradziezowe.getKoszt(),0);
+        assertEquals(zabezpieczeniePrzeciwkradziezowe.getKoszt(), dodaneZabezpieczeniePrzeciwkradziezowe.getKoszt(), 0);
         // delta= jaka roznice dopuszczam
     }
 
     @Test
-    public void shouldRetunUpdateZabezpieczeniePrzeciwkradziezowe()
-    {
-        ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe= ZabezpieczeniePrzeciwkradziezowe.builder()
+    public void shouldRetunUpdateZabezpieczeniePrzeciwkradziezowe() {
+        ZabezpieczeniePrzeciwkradziezowe zabezpieczeniePrzeciwkradziezowe = ZabezpieczeniePrzeciwkradziezowe.builder()
             .koszt(200)
             .build();
 
         when(zabezpieczeniePrzeciwkradziezoweRepository.save(zabezpieczeniePrzeciwkradziezowe)).thenReturn(zabezpieczeniePrzeciwkradziezowe);
-            ZabezpieczeniePrzeciwkradziezowe dodaneZabezpieczeniePrzeciwkradziezowe= zabezpieczeniePrzeciwkradziezoweService.modyfikujZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezowe);
+        ZabezpieczeniePrzeciwkradziezowe dodaneZabezpieczeniePrzeciwkradziezowe = zabezpieczeniePrzeciwkradziezoweService.modyfikujZabezpieczeniePrzeciwkradziezowe(zabezpieczeniePrzeciwkradziezowe);
 
         assertEquals(zabezpieczeniePrzeciwkradziezowe.getKoszt(), dodaneZabezpieczeniePrzeciwkradziezowe.getKoszt(), 0);
 
     }
-
-
-
-
-
 
 
 }

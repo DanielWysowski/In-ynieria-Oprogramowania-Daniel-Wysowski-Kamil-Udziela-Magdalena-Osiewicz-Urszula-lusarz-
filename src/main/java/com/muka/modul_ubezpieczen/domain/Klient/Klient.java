@@ -49,20 +49,18 @@ public class Klient {
     private String seriaDowodu;
 
 
-
     @Builder
     public Klient(String imie, String nazwisko, String adres, Integer kodPocztowy, String email, Integer numerTelefonu, Long pesel, String seriaDowodu) {
 
         this.imie = imie;
-        this.nazwisko=nazwisko;
+        this.nazwisko = nazwisko;
         this.adres = adres;
-        this.kodPocztowy=kodPocztowy;
-        this.email=email;
-        this.numerTelefonu=numerTelefonu;
-        this.pesel=pesel;
-        this.seriaDowodu=seriaDowodu;
+        this.kodPocztowy = kodPocztowy;
+        this.email = email;
+        this.numerTelefonu = numerTelefonu;
+        this.pesel = pesel;
+        this.seriaDowodu = seriaDowodu;
     }
-
 
 
 }

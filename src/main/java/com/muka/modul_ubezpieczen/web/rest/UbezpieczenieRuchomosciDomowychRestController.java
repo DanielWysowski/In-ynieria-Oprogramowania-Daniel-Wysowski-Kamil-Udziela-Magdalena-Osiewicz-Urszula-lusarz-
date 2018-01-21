@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static com.muka.modul_ubezpieczen.service.dto.PolisaMieszkaniowaDTO.ofPolisaMieszkaniowa;
 import static com.muka.modul_ubezpieczen.service.dto.UbezpieczenieRuchomosciDomowychDTO.ofUbezpieczenieRuchomosciDomowych;
 import static java.time.LocalDateTime.now;
 
@@ -32,7 +31,6 @@ public class UbezpieczenieRuchomosciDomowychRestController {
     PolisaMieszkaniowaService polisaMieszkaniowaService;
     @Autowired
     UbezpieczenieRuchomosciDomowychRepository ubezpieczenieRuchomosciDomowychRepository;
-
 
 
     @PostMapping()
@@ -74,15 +72,11 @@ public class UbezpieczenieRuchomosciDomowychRestController {
         return ResponseEntity.ok(ubezpieczenieRuchomosciDomowychService.pobierzUbezpieczeniaRuchomosciDomowych());
     }
 
-    @RequestMapping(value ="/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(@PathVariable Long id) {
 
         return ResponseEntity.ok(ofUbezpieczenieRuchomosciDomowych(ubezpieczenieRuchomosciDomowychService.pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(id)));
     }
-
-
-
-
 
 
 }

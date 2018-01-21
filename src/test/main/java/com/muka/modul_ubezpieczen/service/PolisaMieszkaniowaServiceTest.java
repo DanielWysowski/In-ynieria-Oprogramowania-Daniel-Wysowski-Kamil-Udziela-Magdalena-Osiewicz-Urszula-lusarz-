@@ -1,7 +1,6 @@
 package com.muka.modul_ubezpieczen.service;
 
 import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.PolisaMieszkaniowa;
-import com.muka.modul_ubezpieczen.domain.Ubezpieczenie.ZabezpieczeniePrzeciwkradziezowe;
 import com.muka.modul_ubezpieczen.repository.PolisaMieszkaniowaRepository;
 import com.muka.modul_ubezpieczen.repository.UbezpieczenieRuchomosciDomowychRepository;
 import com.muka.modul_ubezpieczen.repository.ZabezpieczeniePrzeciwkradziezoweRepository;
@@ -47,6 +46,23 @@ public class PolisaMieszkaniowaServiceTest {
 
         assertEquals(polisaMieszkaniowa.getNumerMieszkania(), dodanaPolisa.getNumerMieszkania());
         assertEquals(polisaMieszkaniowa.getMiasto(), dodanaPolisa.getMiasto());
+    }
+
+    @Test
+    public void shouldRetunUpdatePolisaMieszknaiowa() {
+        PolisaMieszkaniowa polisaMieszkaniowa = PolisaMieszkaniowa.builder()
+            .miasto("Katowice")
+            .ulica("zielna")
+            .kodPcztowy(11123)
+            .build();
+
+        when(polisaMieszkaniowaRepository.save(polisaMieszkaniowa)).thenReturn(polisaMieszkaniowa);
+
+        PolisaMieszkaniowa dodanaPolisa = polisaMieszkaniowaService.uaktualnijPoliseMieszkaniowa(polisaMieszkaniowa);
+
+        assertEquals(polisaMieszkaniowa.getKodPcztowy(), dodanaPolisa.getKodPcztowy());
+        assertEquals(polisaMieszkaniowa.getMiasto(), dodanaPolisa.getMiasto());
+        assertEquals(polisaMieszkaniowa.getUlica(), dodanaPolisa.getUlica());
     }
 
 

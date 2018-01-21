@@ -42,7 +42,8 @@ public class UbezpieczenieRuchomosciDomowychService {
     public void rezygnujZUbezpieczeniaRuchomosciDomowych(UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych) {
         ubezpieczenieRuchomosciDomowychRepository.delete(ubezpieczenieRuchomosciDomowych);
     }
-    public UbezpieczenieRuchomosciDomowych pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(Long polisaMieszkaniowaId){
+
+    public UbezpieczenieRuchomosciDomowych pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(Long polisaMieszkaniowaId) {
         return ubezpieczenieRuchomosciDomowychRepository.findByPolisaMieszkaniowaIdPolisaMieszkaniowa(polisaMieszkaniowaId);
     }
 
