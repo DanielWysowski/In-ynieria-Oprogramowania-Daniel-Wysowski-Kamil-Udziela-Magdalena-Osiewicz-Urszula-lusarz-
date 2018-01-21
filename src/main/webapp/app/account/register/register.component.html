@@ -6,7 +6,7 @@
             <div class="col-md-9">
                 <h2><a href="http://www.jhipster.tech/" target="_blank" rel="noopener"> Gratulujemy! </a></h2>
                 <br/>
-                <h2> <a target="_blank" rel="noopener"> Numer Twojej nowej polisy mieszkaniowej to: </a>
+                <h2> <font size="4"><a target="_blank" rel="noopener"> Numer Twojej nowej polisy mieszkaniowej to:  </a></font>
                     <button *ngIf="polisaId == null" type="submit" class="btn btn-primary" class="alert-link" (click)="pobierzPolise()"> ??? </button>
 
                     <h2>{{polisaId}}</h2>
@@ -72,47 +72,44 @@
 
 
 <div>
-    <button  type="submit" class="btn btn-primary" class="alert-link"  > administrator </button>
 
-    <h2> <input type="password" class="form-control" [(ngModel)]="haselko"
-           required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">  </h2>
+    <p align="right"> <font size="4"><label> Administrator </label></font></b>
+<br/>
+      <input type="password" [(ngModel)]="haselko"
+             required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Hasło"></p>
 
     <div *ngIf=" haselko == 'muka' ">
 
-        <label> do zaplaty </label>
-        <input type="text" class="form-control" [(ngModel)]="kwotaF"
-               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+        <p align="right"><input type="text" [(ngModel)]="kwotaF"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Kwota do zapłaty"> </p>
 
-        <label> opis  </label>
-        <input type="text" class="form-control" [(ngModel)]="opis"
-               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+        <p align="right"><input type="text" [(ngModel)]="opis"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Informacje"> </p>
 
-
-        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="dodajFakture()" > dodaj </button>
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="dodajFakture()" > Dodaj fakturę </button></p>
 
     <h2>
         <!--{{polisaId}} <br/> {{opis}} -->
-        <br/>
-        numer dodanej faktury to: {{fakturaMieszkaniowa.id}} </h2>
+
+        <p align="right"> <font size="4"> Numer dodanej faktury to: {{fakturaMieszkaniowa.id}}</font></p> </h2>
 
 
-        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="pobierzFakturyMieszkaniowe()" > wszytskie fakturt </button>
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="pobierzFakturyMieszkaniowe()" class="alert alert-danger"> Wyświetl wszystkie faktury </button></p>
 
-        <div *ngFor="let faktura of faktury">
+       <div *ngFor="let faktura of faktury">
             <!--<div *ngIf="faktura.id == indexOf(id.max)">-->
-            {{faktura.id}} -> {{faktura.data}}
+           <p align="right">  {{faktura.id}} -> {{faktura.data}} </p> </div>
            <!--</div>-->
-        </div>
-        <br/> <br/>
-        <label> dodaj do rachunku fakture nr  </label>
-        <input type="text" class="form-control" [(ngModel)]="fakturaId"
-               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+        <p align="right"><label> Dodaj do rachunku fakturę nr:  </label>
+        <input type="text"  [(ngModel)]="fakturaId"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$"> </p>
 
-        <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="uaktualnijPoliseMieszkaniowa(fakturaId)" > uaktualnij </button>
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="uaktualnijPoliseMieszkaniowa(fakturaId)" > Uaktualnij </button></p>
 
-
+        </p>
 
     </div>
+</div>
 </div>
 
 
