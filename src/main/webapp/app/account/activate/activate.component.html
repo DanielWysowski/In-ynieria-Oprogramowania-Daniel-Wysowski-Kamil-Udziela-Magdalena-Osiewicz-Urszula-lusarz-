@@ -21,14 +21,11 @@
     <b class="font-weight-bold"  > <font size="6"> <p align="center">Twoje faktury i rozliczenia </p> </font></b>
 </div>
 
-
-<h4 class="font-weight-bold" style="font-size:30px" >Ubezpieczenie mieszkaniowe </h4><button  type="submit"   ng-click="isCollapsed = !isCollapsed"  (click)="pobierzPolise()" uib-collapse="isCollapsed"  style="width:170px; height:33px;" > <font size="4">Numer polisy:  {{polisaId}} </font> </button>
+<b>
+    <b class="font-weight-bold" style="font-size:30px" align="left">Ubezpieczenie mieszkaniowe </b><button  type="submit"   ng-click="isCollapsed = !isCollapsed"  (click)="pobierzPolise()" uib-collapse="isCollapsed"  style="width:170px; height:33px;" > <font size="4">Numer polisy:  {{polisaId}} </font> </button></b>
 <br/>
-    </div>
-<br/>
-    <button  class="link" (click)="pobierzPoliseById(polisaId)"> <font size="5" >Dane klienta: </font> </button>
-
-   <br/> <br/>
+<b> <button  class="link" (click)="pobierzPoliseById(polisaId)"> <font size="5" >Dane klienta: </font> </button></b> <div style="float: right;"><img src="too.png"></div>
+   <br/>
     <div *ngIf="polisa != null">
         <p style="font-size:20px">  <a class="font-weight-bold">Imie: </a> {{polisa.klientDTO.imie}}<br/> <a class="font-weight-bold"> Nazwisko: </a>{{polisa.klientDTO.nazwisko}} <br/> <a class="font-weight-bold"> Adres email: </a>{{polisa.klientDTO.email}}<br/>
         <a class="font-weight-bold">Ulica: </a>{{polisa.ulica}} <br/> <a class="font-weight-bold">Numer budynku: </a>{{polisa.numerBudynku}} <br/> <a class="font-weight-bold"> Numer mieszkania: </a>{{polisa.numerMieszkania}} <br/> <a class="font-weight-bold">Miasto: </a>{{polisa.miasto}} <br/> <a class="font-weight-bold">Kod pocztowy: </a>{{polisa.kodPocztowy}} <br/> <br/> </p>
@@ -44,6 +41,7 @@
         </div>
 
        </div>
+</p>
     <br/> <br/>
 
     <!--<button type="submit" class="btn btn-primary" class="alert-link"   (click)="pobierzFakturyMieszkaniowe()"  > wszystkie </button>-->
