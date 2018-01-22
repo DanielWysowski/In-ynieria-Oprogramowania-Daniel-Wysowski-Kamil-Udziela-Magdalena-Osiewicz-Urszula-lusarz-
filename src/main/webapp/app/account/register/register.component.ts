@@ -49,7 +49,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     public kwotaF: number;
     public faktury: FakturaMieszkaniowa[];
     public data: Date;
-//    public kwota: number;
 
 
     constructor(private languageService: JhiLanguageService,
@@ -59,7 +58,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
                 private renderer: Renderer,
                 private http: Http,
                 private polisaService: Polisa
-                //private fakturaService: Faktura
     ) {
     }
 
@@ -89,7 +87,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
     }
 
-
     private processError(response) {
         this.success = null;
         if (response.status === 400 && response.json().type === LOGIN_ALREADY_USED_TYPE) {
@@ -104,8 +101,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
     public pobierzPolise = () => {
         this.polisaId = this.polisaService.getPolisaId();
-        // this.http.get(this._webApiUrl + 'polisa_mieszkaniowa/' + this.polisaService.getPolisaId())
-        //     .subscribe(result => this.polisa = result.json());
+
     };
 
 
@@ -136,8 +132,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     };
 
     dodajFakture() {
-        let faktura = new FakturaMieszkaniowa(this.fakturaId, this.kwotaF, this.opis, this.data); //
-        // console.log(faktura);
+        let faktura = new FakturaMieszkaniowa(this.fakturaId, this.kwotaF, this.opis, this.data);
         this.http.post(this._webApiUrl + 'faktura', faktura)
             .subscribe(data => {
                 this.fakturaMieszkaniowa = data.json();

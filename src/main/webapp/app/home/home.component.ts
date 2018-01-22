@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     public numerBudynku;
     public numerMieszkania;
     public klientId;
-    public idPolisaMieszkaniowa;
     public klienci: Klient[];
     public polisaMieszkaniowaId;
 
@@ -62,7 +61,6 @@ export class HomeComponent implements OnInit {
         this.modalRef = this.loginModalService.open();
     }
 
-
     dodajPoliseMieszkaniowa() {
         let polisaMieszkaniowa = new PolisaMieszkaniowa( new Klient(this.klientId), this.miasto, this.kodPocztowy, this.ulica, this.numerBudynku, this.numerMieszkania, this.polisaMieszkaniowaId); //
         this.http.post(this._webApiUrl + 'polisa_mieszkaniowa', polisaMieszkaniowa)
@@ -72,8 +70,6 @@ export class HomeComponent implements OnInit {
                 console.log(error.json());
             });
     };
-
-
 
     public pobierzKlientow = () => {
         this.http.get(this._webApiUrl + 'klient')
