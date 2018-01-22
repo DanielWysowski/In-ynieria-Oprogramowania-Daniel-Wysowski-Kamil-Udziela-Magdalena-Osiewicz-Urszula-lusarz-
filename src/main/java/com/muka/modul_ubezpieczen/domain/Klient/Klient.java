@@ -62,5 +62,4 @@ public class Klient {
         this.seriaDowodu = seriaDowodu;
     }
 
-
 }

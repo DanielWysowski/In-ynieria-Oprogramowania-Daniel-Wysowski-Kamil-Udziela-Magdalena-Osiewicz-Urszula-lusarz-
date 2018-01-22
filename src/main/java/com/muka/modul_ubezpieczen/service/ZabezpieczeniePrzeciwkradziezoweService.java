@@ -32,10 +32,6 @@ public class ZabezpieczeniePrzeciwkradziezoweService {
         return zabezpieczeniePrzeciwkradziezoweRepository.save(zabezpieczeniePrzeciwkradziezowe);
     }
 
-    public ZabezpieczeniePrzeciwkradziezowe findOne(Long idZabezpieczeniePrzeciwkradziezowe) {
-        return zabezpieczeniePrzeciwkradziezoweRepository.findOne(idZabezpieczeniePrzeciwkradziezowe);
-    }
-
     public List<ZabezpieczeniePrzeciwkradziezowe> pobierzZabezpieczeniaPrzeciwkradziezowe() {
         return zabezpieczeniePrzeciwkradziezoweRepository.findAll();
     }

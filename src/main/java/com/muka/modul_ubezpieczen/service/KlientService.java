@@ -5,7 +5,6 @@ import com.muka.modul_ubezpieczen.repository.KlientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Optional.ofNullable;
@@ -19,7 +18,6 @@ public class KlientService {
     @Autowired
     private KlientRepository klientRepository;
 
-    private final List<Klient> klienci = new ArrayList<>();
 
     public Klient dodajKlienta(Klient klient) {
         return klientRepository.save(klient);
