@@ -9,8 +9,6 @@ import {Http} from "@angular/http";
 import {PolisaMieszkaniowa} from "../../PolisaMieszkaniowa";
 import {Klient} from "../../Klient";
 import {FakturaMieszkaniowa} from "../../FakturaMieszkaniowa";
-import {UbezpieczenieRuchomosciDomowych} from "../../UbezpieczenieRuchomosciDomowych";
-import {ZabezpieczeniePrzeciwkradziezowe} from "../../ZabezpieczeniePrzeciwkradziezowe";
 
 @Component({
     selector: 'jhi-activate',
@@ -71,8 +69,6 @@ export class ActivateComponent implements OnInit {
 
     public pobierzPolise = () => {
         this.polisaId = this.polisaService.getPolisaId();
-        // this.http.get(this._webApiUrl + 'polisa_mieszkaniowa/' + this.polisaService.getPolisaId())
-        //     .subscribe(result => this.polisa = result.json());
     };
 
     public pobierzPoliseById = (polisaId) => {
@@ -83,21 +79,6 @@ export class ActivateComponent implements OnInit {
             }, error => {
                 console.log(error.json());
             });
-        // .subscribe(result => this.polisa = result.json());
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

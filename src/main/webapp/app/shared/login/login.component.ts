@@ -1,13 +1,12 @@
-import {Component, AfterViewInit, Renderer, ElementRef, OnInit} from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
-import { JhiEventManager } from 'ng-jhipster';
+import {AfterViewInit, Component, ElementRef, Renderer} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { LoginService } from './login.service';
-import { StateStorageService } from '../auth/state-storage.service';
+import {LoginService} from './login.service';
+import {StateStorageService} from '../auth/state-storage.service';
 import {Http} from "@angular/http";
 import {Polisa} from "../../home/polisa.service";
-import {Klient} from "../../Klient";
 import {PolisaMieszkaniowa} from "../../PolisaMieszkaniowa";
 import {FakturaMieszkaniowa} from "../../FakturaMieszkaniowa";
 import {UbezpieczenieRuchomosciDomowych} from "../../UbezpieczenieRuchomosciDomowych";
@@ -17,7 +16,7 @@ import {ZabezpieczeniePrzeciwkradziezowe} from "../../ZabezpieczeniePrzeciwkradz
     selector: 'jhi-login-modal',
     templateUrl: './login.component.html'
 })
-export class JhiLoginModalComponent implements  AfterViewInit {
+export class JhiLoginModalComponent implements AfterViewInit {
     authenticationError: boolean;
     password: string;
     rememberMe: boolean;
@@ -28,7 +27,6 @@ export class JhiLoginModalComponent implements  AfterViewInit {
     public polisa: PolisaMieszkaniowa;
     public polisaId: number;
     public id: number;
-    public klientDTO: Klient;
     public miasto: string = '';
     public kodPocztowy: number;
     public ulica: string = '';
@@ -40,17 +38,15 @@ export class JhiLoginModalComponent implements  AfterViewInit {
     public koszt: number;
     public zabezpieczeniePrzeciwkradziezowe: ZabezpieczeniePrzeciwkradziezowe;
 
-    constructor(
-        private eventManager: JhiEventManager,
-        private loginService: LoginService,
-        private stateStorageService: StateStorageService,
-        private elementRef: ElementRef,
-        private renderer: Renderer,
-        private router: Router,
-        public activeModal: NgbActiveModal,
-        private http: Http,
-        private polisaService: Polisa
-    ) {
+    constructor(private eventManager: JhiEventManager,
+                private loginService: LoginService,
+                private stateStorageService: StateStorageService,
+                private elementRef: ElementRef,
+                private renderer: Renderer,
+                private router: Router,
+                public activeModal: NgbActiveModal,
+                private http: Http,
+                private polisaService: Polisa) {
         this.credentials = {};
     }
 
@@ -86,8 +82,6 @@ export class JhiLoginModalComponent implements  AfterViewInit {
                 content: 'Sending Authentication Success'
             });
 
-            // // previousState was set in the authExpiredInterceptor before being redirected to login modal.
-            // // since login is succesful, go to stored previousState and clear previousState
             const redirect = this.stateStorageService.getUrl();
             if (redirect) {
                 this.stateStorageService.storeUrl(null);
@@ -122,7 +116,6 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             }, error => {
                 console.log(error.json());
             });
-            // .subscribe(result => this.polisa = result.json());
     };
 
 
@@ -136,10 +129,9 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             .subscribe(result => {
                 this.ubezpieczenieRuchomosciDomowych = result.json();
                 console.log(this.ubezpieczenieRuchomosciDomowych);
-            },  error => {
+            }, error => {
                 console.log(error.json());
             });
-        // .subscribe(result => this.polisa = result.json());
     };
 
     public pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa = (polisaId) => {
@@ -147,13 +139,12 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             .subscribe(result => {
                 this.zabezpieczeniePrzeciwkradziezowe = result.json();
                 console.log(this.zabezpieczeniePrzeciwkradziezowe);
-            },  error => {
+            }, error => {
                 console.log(error.json());
             });
-        // .subscribe(result => this.polisa = result.json());
     };
 
-    public modyfikujZabezpieczeniePrzeciwkradziezowe(nowyKoszt){
+    public modyfikujZabezpieczeniePrzeciwkradziezowe(nowyKoszt) {
         this.zabezpieczeniePrzeciwkradziezowe.koszt = nowyKoszt;
         this.http.put(this._webApiUrl + 'zabezpieczenie_przeciwkradziezowe', this.zabezpieczeniePrzeciwkradziezowe)
             .subscribe(data => {
@@ -163,7 +154,7 @@ export class JhiLoginModalComponent implements  AfterViewInit {
     };
 
 
-    public modyfikujUbezpieczeniaRuchomosciDomowych(nowyKoszt){
+    public modyfikujUbezpieczeniaRuchomosciDomowych(nowyKoszt) {
         this.ubezpieczenieRuchomosciDomowych.koszt = nowyKoszt;
         this.http.put(this._webApiUrl + 'ubezpieczenie_ruchomosci_domowych', this.ubezpieczenieRuchomosciDomowych)
             .subscribe(data => {
@@ -172,22 +163,21 @@ export class JhiLoginModalComponent implements  AfterViewInit {
             });
     };
 
-    public zrezygnujZUbezpieczeniaRuchomosciDomowych(polisaId){
-        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/ubezpieczenie-ruchomosci-domowych/'+ polisaId)
+    public zrezygnujZUbezpieczeniaRuchomosciDomowych(polisaId) {
+        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/ubezpieczenie-ruchomosci-domowych/' + polisaId)
             .subscribe(data => {
             }, error => {
                 console.log(error.json());
             });
     };
 
-    public zrezygnujZZabezpieczeniaPrzeciwkradziezowego(polisaId){
-        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/zabezpieczenie-przeciwkradziezowe/'+ polisaId)
+    public zrezygnujZZabezpieczeniaPrzeciwkradziezowego(polisaId) {
+        this.http.delete(this._webApiUrl + 'polisa_mieszkaniowa/zabezpieczenie-przeciwkradziezowe/' + polisaId)
             .subscribe(data => {
             }, error => {
                 console.log(error.json());
             });
     };
-
 
 
 }
