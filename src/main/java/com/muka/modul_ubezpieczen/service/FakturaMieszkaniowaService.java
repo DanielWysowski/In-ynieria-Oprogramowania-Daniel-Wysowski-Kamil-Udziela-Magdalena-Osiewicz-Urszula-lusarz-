@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.Optional.ofNullable;
-
 /**
  * Created by Magda on 28.12.2017.
  */
@@ -26,9 +24,6 @@ public class FakturaMieszkaniowaService {
         return fakturaMieszkaniowaRepository.findOne(idFaktura);
     }
 
-    public FakturaMieszkaniowa findOneById(Long idFaktura) {
-        return ofNullable(fakturaMieszkaniowaRepository.findOne(idFaktura)).orElseThrow(ResourceNotExistException::new);
-    }
 
     public List<FakturaMieszkaniowa> pobierzFakturyMieszkaniowe() {
         return fakturaMieszkaniowaRepository.findAll();

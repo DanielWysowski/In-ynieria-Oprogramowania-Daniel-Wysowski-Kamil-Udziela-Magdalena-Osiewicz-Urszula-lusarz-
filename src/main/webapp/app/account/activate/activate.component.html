@@ -32,7 +32,7 @@
 
 
         <div *ngIf="polisa.fakturaMieszkaniowa != null">
-            <p style="font-size:20px"> <a class="font-weight-bold">  Numer faktury:</a>  {{polisa.fakturaMieszkaniowa.id}} <br/> <a class="font-weight-bold">Kwota do zapłaty: </a>{{polisa.fakturaMieszkaniowa.kwota}}zl <br/> <a class="font-weight-bold">Informacje: </a>{{polisa.fakturaMieszkaniowa.opis}} <br/><a class="font-weight-bold"> Data wystawienia faktury:  </a>{{polisa.fakturaMieszkaniowa.data}}</p>
+            <p style="font-size:20px"> <a class="font-weight-bold">  Numer faktury:</a>  {{polisa.fakturaMieszkaniowa.id}} <br/> <a class="font-weight-bold">Kwota do zapłaty: </a>{{polisa.fakturaMieszkaniowa.kwota}}zl <br/> <a class="font-weight-bold">Informacje: </a>{{polisa.fakturaMieszkaniowa.opis}} <br/>{{polisa.fakturaMieszkaniowa.data}} </p>
        </div>
 
         <div *ngIf="polisa.fakturaMieszkaniowa == null">

@@ -50,9 +50,6 @@ public class PolisaMieszkaniowaService {
         return ofNullable(polisaMieszkaniowaRepository.findOne(polisaMieszkaniowaId)).orElseThrow(ResourceNotExistException::new);
     }
 
-    public PolisaMieszkaniowa findOne(Long polisaMieszkaniowaId) {
-        return polisaMieszkaniowaRepository.findOne(polisaMieszkaniowaId);
-    }
 
     public void deleteUbezpieczenieRuchomosciDomowych(Long polisaMieszkaniowaId) {
         ubezpieczenieRuchomosciDomowychRepository.delete(ubezpieczenieRuchomosciDomowychRepository.findByPolisaMieszkaniowaIdPolisaMieszkaniowa(polisaMieszkaniowaId));
