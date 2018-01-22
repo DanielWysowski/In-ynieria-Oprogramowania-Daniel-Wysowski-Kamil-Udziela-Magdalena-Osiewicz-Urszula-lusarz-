@@ -31,16 +31,9 @@ public class UbezpieczenieRuchomosciDomowychService {
         return ubezpieczenieRuchomosciDomowychRepository.save(ubezpieczenieRuchomosciDomowych);
     }
 
-    public UbezpieczenieRuchomosciDomowych findOne(Long idUbezpieczenieRuchomosciDomowych) {
-        return ubezpieczenieRuchomosciDomowychRepository.findOne(idUbezpieczenieRuchomosciDomowych);
-    }
 
     public List<UbezpieczenieRuchomosciDomowych> pobierzUbezpieczeniaRuchomosciDomowych() {
         return ubezpieczenieRuchomosciDomowychRepository.findAll();
-    }
-
-    public void rezygnujZUbezpieczeniaRuchomosciDomowych(UbezpieczenieRuchomosciDomowych ubezpieczenieRuchomosciDomowych) {
-        ubezpieczenieRuchomosciDomowychRepository.delete(ubezpieczenieRuchomosciDomowych);
     }
 
     public UbezpieczenieRuchomosciDomowych pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(Long polisaMieszkaniowaId) {
